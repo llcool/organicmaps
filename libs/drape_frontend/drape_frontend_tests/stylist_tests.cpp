@@ -93,10 +93,10 @@ UNIT_TEST(Stylist_IntermittentWaterAreaPriority)
     auto const river = cl.GetTypeByPath({"waterway", "river"});
     auto const basin = cl.GetTypeByPath({"landuse", "basin"});
     auto const intermittentBasin = cl.GetTypeByPath({"landuse", "basin", "intermittent"});
-    auto const areaPriority = [](std::initializer_list<uint32_t> types, uint8_t zoom)
+    auto const areaPriority = [style](std::initializer_list<uint32_t> types, uint8_t zoom)
     {
       auto feature = FeatureType::CreateFromMapObject(WaterArea(types));
-      df::Stylist stylist(*feature, zoom, StringUtf8Multilang::kEnglishCode, false);
+      df::Stylist stylist(*feature, zoom, StringUtf8Multilang::kEnglishCode, style);
       CHECK(stylist.m_areaRule != nullptr, ());
       return stylist.m_areaRule->priority;
     };

@@ -50,8 +50,7 @@ void FilterRulesByRuntimeSelector(FeatureType & f, int zoomLevel, drule::RulesHo
   keys.erase_if([&](drule::Key const & key)
   {
     drule::BaseRule const * const rule = rulesHolder.Find(key);
-    if (rule == nullptr)
-      return true;
+    ASSERT(rule != nullptr, (key.m_index));
     return !rule->TestFeature(f, zoomLevel);
   });
 }
