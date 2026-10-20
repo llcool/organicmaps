@@ -8,6 +8,8 @@
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
 
+#include <algorithm>
+
 BookmarkLoader::BookmarkLoader(ApplyData applyData) : m_applyData(std::move(applyData)) {}
 
 void BookmarkLoader::SetCallbacks(BookmarkLoadingCallbacks && callbacks)
@@ -53,6 +55,7 @@ void BookmarkLoader::LoadBookmarks()
 void BookmarkLoader::ImportBookmarks(std::vector<BookmarkFileLoadingContext> contexts)
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());
+  ASSERT(std::ranges::none_of(contexts, [](auto const & context) { return context.m_filePath.empty(); }), ());
   std::erase_if(contexts, [](auto const & context) { return context.m_filePath.empty(); });
 
   if (!contexts.empty())
@@ -62,6 +65,7 @@ void BookmarkLoader::ImportBookmarks(std::vector<BookmarkFileLoadingContext> con
 void BookmarkLoader::ReloadBookmarks(std::vector<std::string> filePaths)
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());
+  ASSERT(std::ranges::none_of(filePaths, [](auto const & path) { return path.empty(); }), ());
   std::vector<BookmarkFileLoadingContext> contexts;
   contexts.reserve(filePaths.size());
   for (auto & filePath : filePaths)
@@ -242,6 +246,7 @@ void BookmarkLoader::FinishRequest(BookmarkImportResult const * importResult)
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());
   m_asyncLoadingInProgress = !m_queue.empty();
+  // Completion callbacks observe the final loading state; defer reentrant requests until this result is delivered.
   m_finishingRequest = true;
 
   if (m_callbacks.m_onFinished != nullptr)
