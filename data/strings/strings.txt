@@ -61,7 +61,7 @@ zh-Hant = 返回
 
 [cancel]
 comment = Button text (should be short)
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = Cancel
 af = Kanselleer
 ar = إلغاء
@@ -120,7 +120,7 @@ zh-Hant = 取消
 
 [delete]
 comment = Button which deletes downloaded country
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Delete
 af = Skrap
 ar = حذف
@@ -180,7 +180,7 @@ zh-Hans = 删除
 zh-Hant = 刪除
 
 [download_maps]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Download Maps
 af = Laai kaarte af
 ar = تنزيل الخرائط
@@ -300,7 +300,7 @@ zh-Hant = 下載失敗，點擊後再試一次。
 
 [downloading]
 comment = Settings/Downloader - info for country which started downloading
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Downloading…
 af = Laai tans af…
 ar = جاري التنزيل…
@@ -360,7 +360,7 @@ zh-Hant = 下載中…
 
 [kilometres]
 comment = Choose measurement on first launch alert - choose metric system button
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Kilometers
 af = Kilometers
 ar = الكيلومترات
@@ -421,7 +421,7 @@ zh-Hant = 公里
 
 [miles]
 comment = Choose measurement on first launch alert - choose imperial system button
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Miles
 af = Myle
 ar = الأميال
@@ -541,7 +541,7 @@ zh-Hant = 以後再說
 
 [search]
 comment = View and button titles for accessibility. Also used in iPhone home screen quick actions.
-tags = android-app,android-libs-car,apple-infoplist,apple-maps
+tags = android-app,android-libs-car,apple-infoplist,apple-maps,qt
 en = Search
 af = Soek
 ar = البحث
@@ -838,7 +838,7 @@ zh-Hant = 為了確保准確的導航啟用設置中的精確位置。
 
 [zoom_to_country]
 comment = View and button titles for accessibility
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Show on the map
 af = Toon op die kaart
 ar = عرض على الخريطة
@@ -896,7 +896,7 @@ zh-Hant = 在地圖上顯示
 
 [country_status_download_failed]
 comment = Message to display at the center of the screen when the country download has failed
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = Download has failed
 af = Aflaai het misluk
 ar = فشلت عملية تنزيل
@@ -1014,7 +1014,7 @@ zh-Hans = 再试一次
 zh-Hant = 再試一次
 
 [about_menu_title]
-tags = android-app
+tags = android-app,qt
 en = About Organic Maps
 af = Oor Organic Maps
 ar = حول Organic Maps
@@ -1421,7 +1421,7 @@ zh-Hans = 位置设置
 zh-Hant = 位置設定
 
 [close]
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = Close
 af = Sluit
 ar = إغلاق
@@ -1536,7 +1536,7 @@ zh-Hans = 该应用程序需要硬件加速的 OpenGL。很遗憾，您的设备
 zh-Hant = 該應用程式需要硬體加速的 OpenGL。很遺憾，您的裝置不受支援。
 
 [download]
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = Download
 af = Laai af
 ar = تنزيل
@@ -2355,7 +2355,7 @@ zh-Hant = 書籤
 
 [bookmarks_and_tracks]
 comment = "Bookmarks and Tracks" dialog title. Also used in iPhone home screen quick actions.
-tags = android-app,apple-infoplist,apple-maps
+tags = android-app,apple-infoplist,apple-maps,qt
 en = Bookmarks and Tracks
 af = Boekmerke en paaie
 ar = الإشارات المرجعية والمسارات
@@ -2415,7 +2415,7 @@ zh-Hant = 書籤和軌跡
 
 [name]
 comment = Add bookmark dialog - bookmark name
-tags = android-app
+tags = android-app,qt
 en = Name
 af = Adres
 ar = الاسم
@@ -2589,7 +2589,7 @@ zh-Hant = 清單
 
 [settings]
 comment = Settings button in system menu
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = Settings
 af = Instellings
 ar = الإعدادات
@@ -3056,7 +3056,7 @@ zh-Hant = 這可能需要幾分鐘的時間\n請稍候…
 
 [measurement_units]
 comment = Measurement units title in settings activity
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Measurement units
 af = Afstandseenhede
 ar = وحدات القياس
@@ -4026,7 +4026,7 @@ zh-Hant = 娛樂
 
 [category_atm]
 comment = Search category for ATMs; any changes should be duplicated in categories.txt @category_atm!
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = ATM
 af = OTM
 ar = صراف آلي
@@ -5809,7 +5809,7 @@ zh-Hant = 在另一個應用程式中開啟
 
 [email]
 comment = Share by email button text, also used in editor and About.
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Email
 af = E-pos
 ar = البريد الالكتروني
@@ -6438,7 +6438,7 @@ zh-Hans = 网络
 zh-Hant = 網路
 
 [prefs_group_route]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Navigation
 af = Navigasie
 ar = الملاحة
@@ -6667,7 +6667,7 @@ zh-Hant = 在黑暗中導航時的夜間風格
 
 [pref_map_style_title]
 comment = Settings «Map» category: «Night style» title
-tags = android-app,android-libs-car
+tags = android-app,android-libs-car,qt
 en = Night Mode
 af = Nagmodus
 ar = الوضع الليلي
@@ -6724,7 +6724,7 @@ zh-Hant = 夜間模式
 
 [off]
 comment = Generic «Off» string
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = Off
 af = Af
 ar = تعطيل
@@ -6781,7 +6781,7 @@ zh-Hant = 關閉
 
 [on]
 comment = Generic «On» string
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = On
 af = Aan
 ar = تشغيل
@@ -8134,7 +8134,7 @@ zh-Hant = 菜單
 
 [website]
 comment = Text in menu
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Website
 af = Webwerf
 ar = الموقع الإلكتروني
@@ -8364,7 +8364,7 @@ zh-Hant = 為我們評分
 
 [help]
 comment = Text in menu
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = Help
 af = Help
 ar = مساعدة
@@ -9225,7 +9225,7 @@ zh-Hant = 已下載
 
 [downloader_queued]
 comment = Country queued for download
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Queued
 af = In wagry
 ar = مَصْفوف
@@ -9684,7 +9684,7 @@ zh-Hant = 下載地圖
 
 [downloader_retry]
 comment = Item status in downloader.
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = Retry
 af = Probeer weer
 ar = المحاولة مجدداً
@@ -11232,7 +11232,7 @@ zh-Hant = 藍灰色
 
 [version]
 comment = Prints version number in About dialog
-tags = apple-maps
+tags = apple-maps,qt
 en = Organic Maps version: %@
 af = Organic Maps weergawe: %@
 ar = Organic Maps الإصدار: %@
@@ -12105,7 +12105,7 @@ zh-Hant = 失敗
 
 [bookmark]
 comment = bookmark button text
-tags = apple-maps
+tags = apple-maps,qt
 en = bookmark
 af = boekmerk
 ar = إشارة مرجعية
@@ -14106,7 +14106,7 @@ zh-Hans = 隐藏
 zh-Hant = 隱藏
 
 [categories]
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = Categories
 af = Kategorieë
 ar = التصنيفات
@@ -14507,7 +14507,7 @@ zh-Hant = 清除搜尋記錄
 
 [read_in_wikipedia]
 comment = Place Page link to Wikipedia article (if map object has it).
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Wikipedia
 af = Wikipedia
 ar = ويكيبيديا
@@ -14625,7 +14625,7 @@ zh-Hant = 文章來自 wikipedia.org
 
 [wikimedia_commons]
 comment = Place Page link to Wikimedia Commons.
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Wikimedia Commons
 af = Wikimedia Commons
 ar = مشاعات ويكيميديا
@@ -14795,7 +14795,7 @@ zh-Hans = 开始
 zh-Hant = 開始
 
 [p2p_from_here]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Route from
 af = Roete vanaf
 ar = الطريق من هنا
@@ -14851,7 +14851,7 @@ zh-Hans = 从这出发
 zh-Hant = 從這裡出發
 
 [p2p_to_here]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Route to
 af = Roete na
 ar = الطريق إلى
@@ -15531,7 +15531,7 @@ zh-Hans = 添加休息时间
 zh-Hant = 新增休息時間
 
 [editor_time_title]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Business Hours
 af = Besigheidsure
 ar = ساعات العمل
@@ -16770,7 +16770,7 @@ zh-Hans = 注册
 zh-Hant = 註冊
 
 [login]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Login
 af = OpenStreetMap-aantekening
 ar = تسجيل الدخول
@@ -16885,7 +16885,7 @@ zh-Hans = 未登录
 zh-Hant = 未登入
 
 [login_osm]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Login to OpenStreetMap
 af = Teken aan op OpenStreetMap
 ar = تسجيل الدخول الى OpenStreetMap
@@ -16942,7 +16942,7 @@ zh-Hans = 登录 OpenStreetMap
 zh-Hant = 登錄 OpenStreetMap
 
 [password]
-tags = android-app
+tags = android-app,qt
 en = Password
 af = Wagwoord
 ar = كلمة المرور
@@ -17056,7 +17056,7 @@ zh-Hans = 忘记密码？
 zh-Hant = 忘記密碼嗎？
 
 [logout]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Log Out
 af = Teken af
 ar = تسجيل الخروج
@@ -17112,7 +17112,7 @@ zh-Hans = 登出
 zh-Hant = 登出
 
 [edit_place]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Edit Place
 af = Wysig plek
 ar = تعديل المكان
@@ -17739,7 +17739,7 @@ zh-Hans = 选择街道
 zh-Hant = 選擇街道
 
 [cuisine]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Cuisine
 af = Kookkuns
 ar = المطبخ
@@ -17852,7 +17852,7 @@ zh-Hant = 選擇料理
 
 [email_or_username]
 comment = login text field
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Email or username
 af = E-posadres of gebruikersnaam
 ar = البريد الإلكتروني أو اسم المستخدم
@@ -17967,7 +17967,7 @@ zh-Hans = 新增电话号码
 zh-Hant = 新增電話號碼
 
 [level]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Floor
 af = Verdieping
 ar = طابق
@@ -19962,7 +19962,7 @@ zh-Hans = 您的地图数据说明
 zh-Hant = 您的地圖資料註釋
 
 [editor_operator]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Operator
 af = Operateur
 ar = المشغل
@@ -20697,7 +20697,7 @@ zh-Hans = 秒
 zh-Hant = 秒
 
 [placepage_more_button]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = More
 af = Meer
 ar = المزيد
@@ -21099,7 +21099,7 @@ zh-Hans = 删除已添加的地点？
 zh-Hant = 移除已新增的地點？
 
 [editor_remove_place_button]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Delete
 af = Skrap
 ar = إزالة
@@ -22190,7 +22190,7 @@ zh-Hant = 記錄軌跡
 
 [accept]
 comment = For the first routing
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Accept
 af = Aanvaar
 ar = قبول
@@ -22248,7 +22248,7 @@ zh-Hant = 接受
 
 [decline]
 comment = For the first routing
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Decline
 af = Weier
 ar = رفض
@@ -22822,7 +22822,7 @@ zh-Hans = 若要显示交通数据，必须更新地图。
 zh-Hant = 若要顯示交通資料，必須更新地圖。
 
 [big_font]
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = Increase size for map labels
 af = Vergroot lettergrootte op kaart
 ar = زيادة حجم الخط على الخريطة
@@ -23222,7 +23222,7 @@ zh-Hans = 如需了解更多信息，请查阅此指南。
 zh-Hant = 如需瞭解更多資訊，請參閱此指南。
 
 [transliteration_title]
-tags = android-app,android-libs-car,apple-maps
+tags = android-app,android-libs-car,apple-maps,qt
 en = Transliterate into Latin alphabet
 af = Transliterasie in Latynse alfabet
 ar = ترجمة حرفية إلى الأبجدية اللاتينية
@@ -23462,7 +23462,7 @@ zh-Hant = 新增目的地
 
 [placepage_add_stop]
 comment = Keep it short: PlacePage button, search field hint and full-screen map point picker title shown while choosing a new intermediate stop of a route.
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Add Stop
 af = Voeg stop by
 ar = إضافة نقطة توقف
@@ -24247,7 +24247,7 @@ zh-Hant = 創建新的列表
 
 [bookmarks_import]
 comment = Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Import Bookmarks and Tracks
 af = Voer leidrade en snitte in
 ar = استيراد الإشارات المرجعية والمسارات
@@ -24760,7 +24760,7 @@ zh-Hans = 请选择其他名称
 zh-Hant = 請選擇其他名稱
 
 [please_wait]
-tags = android-app
+tags = android-app,qt
 en = Please wait…
 af = Wag asb.…
 ar = أرجو الإنتظار…
@@ -25482,7 +25482,7 @@ zh-Hans = 使用条款
 zh-Hant = 使用條款
 
 [button_layer_traffic]
-tags = android-app
+tags = android-app,qt
 en = Traffic
 af = Verkeer
 ar = حركة مرور
@@ -25539,7 +25539,7 @@ zh-Hant = 路況
 
 [button_layer_hiking]
 comment = Hiking routes layer name in the Styles and Layers dialog
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Hiking
 af = Staptoere
 ar = تضاريس
@@ -25597,7 +25597,7 @@ zh-Hant = 登山
 
 [button_layer_cycling]
 comment = Cycling routes layer name in the Styles and Layers dialog
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Cycling
 af = Fietsroetes
 ar = ركوب الدراجات
@@ -26113,7 +26113,7 @@ zh-Hant = …更多
 
 [export_file]
 comment = Menu title for exporting a file in the default KMZ format
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Export KMZ
 af = Voer KMZ uit
 ar = تصدير KMZ
@@ -26170,7 +26170,7 @@ zh-Hant = 導出為 KMZ
 
 [export_file_gpx]
 comment = Menu title for exporting a file in GPX format
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Export GPX
 af = Voer GPX uit
 ar = تصدير GPX
@@ -26227,7 +26227,7 @@ zh-Hant = 導出為 GPX
 
 [export_file_geojson]
 comment = Menu title for exporting a file in GeoJSON format
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Export GeoJSON
 af = Voer GeoJSON uit
 ar = تصدير GeoJSON
@@ -26974,7 +26974,7 @@ zh-Hant = 最大程度省電
 
 [bookmarks_text_placement_title]
 comment = Settings/Bookmark Text Placement
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Bookmark names on the map
 af = Boekmerkname op die kaart
 ar = أسماء الإشارات المرجعية على الخريطة
@@ -27086,7 +27086,7 @@ zh-Hans = 如果书签太多，在地图上显示其名称可能会降低应用�
 zh-Hant = 如果有太多書籤，將這些名稱顯示在地圖上將拖慢 app 的速度。
 
 [show_to_the_right]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Show to the right
 af = Wys aan die regterkant
 ar = عرض إلى اليمين
@@ -27141,7 +27141,7 @@ zh-Hans = 右侧显示
 zh-Hant = 顯示在右側
 
 [show_at_the_bottom]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Show at the bottom
 af = Wys onderaan
 ar = اعرض في الأسفل
@@ -28339,7 +28339,7 @@ zh-Hant = 遮斷機
 
 [yes]
 comment = A generic "Yes" button in dialogs
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Yes
 af = Ja
 ar = نعم
@@ -28738,7 +28738,7 @@ zh-Hans = 您已到达目的地！
 zh-Hant = 您已到達目的地！
 
 [ok]
-tags = android-app,android-libs-routing,apple-maps
+tags = android-app,android-libs-routing,apple-maps,qt
 en = OK
 af = Goed
 ar = موافق
@@ -30156,7 +30156,7 @@ zh-Hans = 密码（至少 8 个字符）
 zh-Hant = 密碼（至少 8 個字符）
 
 [invalid_username_or_password]
-tags = apple-maps
+tags = apple-maps,qt
 en = Invalid username or password.
 af = Ongeldige gebruikersnaam of wagwoord.
 ar = اسم المستخدم أو كلمة المرور غير صالحة.
@@ -30437,7 +30437,7 @@ zh-Hans = 地点名称
 zh-Hant = 地點名稱
 
 [phone]
-tags = apple-maps
+tags = apple-maps,qt
 en = Phone
 af = Telefoon
 ar = رقم الهاتف
@@ -31911,7 +31911,7 @@ zh-Hans = …更多
 zh-Hant = …更多
 
 [refresh]
-tags = apple-maps
+tags = apple-maps,qt
 en = Update
 af = Werk by
 ar = تحديث
@@ -32647,7 +32647,7 @@ zh-Hans = 正在下載 %@…
 zh-Hant = 正在下載 %@…
 
 [downloader_applying]
-tags = apple-maps
+tags = apple-maps,qt
 en = Applying %@…
 af = Pas tans %@ toe…
 ar = جاري التطبيق %@…
@@ -35941,7 +35941,7 @@ zh-Hans = 选择地铁站附近的起点和终点
 zh-Hant = 選擇捷運站附近的起點和終點
 
 [button_layer_isolines]
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Contour Lines
 af = Kontoerlyne
 ar = تضاريس
@@ -37092,7 +37092,7 @@ zh-Hant = 啟用後，即使裝置已鎖定，應用程式仍會在鎖定螢幕�
 
 [change_map_locale]
 comment = Current language of the map!
-tags = android-app
+tags = android-app,qt
 en = Map language
 af = Kaarttaal
 ar = لغة الخريطة
@@ -38580,7 +38580,7 @@ zh-Hant = 授予權限
 
 [button_layer_outdoor]
 comment = Outdoors/hiking map style (activity) name in the Styles and Layers dialog
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Outdoors
 af = Stap
 ar = الأنشطة الخارجية
@@ -39042,7 +39042,7 @@ zh-Hant = 清除搜尋
 
 [zoom_in]
 comment = Accessibility text for the zoom-in button on the map and visible title for the CarPlay dashboard button. Keep it short.
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Zoom in
 af = Zoem in
 ar = تكبير
@@ -39100,7 +39100,7 @@ zh-Hant = 放大
 
 [zoom_out]
 comment = Accessibility text for the zoom-out button on the map and visible title for the CarPlay dashboard button. Keep it short.
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Zoom out
 af = Zoem uit
 ar = تصغير
@@ -39967,7 +39967,7 @@ zh-Hant = 沒有安裝可以打開該位置的應用程式
 
 [follow_system]
 comment = Setting option to sync the app's theme with the operating system's dark/light mode
-tags = android-app
+tags = android-app,qt
 en = Follow the system
 af = Volg die stelsel
 ar = حسب النظام
@@ -41923,7 +41923,7 @@ zh-Hant = 最近刪除的列表
 
 [clear]
 comment = Title for the "Clear" button on the Recently Deleted Lists screen.
-tags = apple-maps
+tags = apple-maps,qt
 en = Clear
 af = Vee uit
 ar = مسح
@@ -42495,7 +42495,7 @@ zh-Hant = GB
 
 [core_my_position]
 comment = A text for current gps location point/arrow selected on the map
-tags = android-sdk,apple-maps
+tags = android-sdk,apple-maps,qt
 en = My Position
 af = My posisie
 ar = موقعي
@@ -42843,7 +42843,7 @@ zh-Hant = 外部共享儲存
 
 [category_wifi]
 comment = Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi!
-tags = android-sdk,apple-maps
+tags = android-sdk,apple-maps,qt
 en = WiFi
 af = Wi-Fi
 ar = إنترنت لا سلكي
@@ -43588,6 +43588,307 @@ uk = Фіолетові завантажені регіони
 vi = Vùng đã tải về màu tím
 zh-Hans = 紫色已下载区域
 zh-Hant = 紫色已下載區域
+
+[[Qt UI strings]]
+
+[app_exit]
+tags = qt
+en = Exit
+
+[upload_edits]
+tags = qt
+en = Upload Edits
+
+[welcome_to_app]
+comment = Welcome dialog title. %@ is the application name; Twine converts it to Qt's %1.
+tags = qt
+en = Welcome to %@
+
+[looking_for_position]
+tags = qt
+en = Looking for position…
+
+[public_transport]
+tags = qt
+en = Public transport
+
+[bookmarks_mouse_shortcuts_tooltip]
+tags = qt
+en = Show bookmarks and tracks; use ALT + RMB to add a bookmark
+
+[intermediate_point]
+tags = qt
+en = Intermediate point
+
+[route_point_mouse_shortcut_tooltip]
+tags = qt
+en = Select mode and use SHIFT + LMB to set point
+
+[follow_route]
+tags = qt
+en = Follow route
+
+[follow_route_mouse_shortcut_tooltip]
+tags = qt
+en = Build route and use ALT + LMB to emulate current position
+
+[clear_route]
+tags = qt
+en = Clear route
+
+[routing_settings]
+tags = qt
+en = Routing settings
+
+[create_feature]
+tags = qt
+en = Create Feature
+
+[create_feature_tooltip]
+tags = qt
+en = Click to select a position, then click again to create a feature
+
+[roads_selection_mode]
+tags = qt
+en = Roads selection mode
+
+[city_boundaries_selection_mode]
+tags = qt
+en = City boundaries selection mode
+
+[city_roads_selection_mode]
+tags = qt
+en = City roads selection mode
+
+[cross_mwm_segments_selection_mode]
+tags = qt
+en = Cross MWM segments selection mode
+
+[mwms_borders_selection_mode]
+tags = qt
+en = MWM borders selection mode
+
+[selection_mode_mouse_tooltip]
+tags = qt
+en = Select mode and use RMB to define selection box
+
+[ruler]
+tags = qt
+en = Ruler
+
+[ruler_mouse_shortcuts_tooltip]
+tags = qt
+en = Check this button and use ALT + LMB to set points
+
+[build_style]
+tags = qt
+en = Build style
+
+[recalculate_geometry_index]
+tags = qt
+en = Recalculate geometry index
+
+[debug_style]
+tags = qt
+en = Debug style
+
+[get_statistics]
+tags = qt
+en = Get statistics
+
+[run_tests]
+tags = qt
+en = Run tests
+
+[build_phone_package]
+tags = qt
+en = Build phone package
+
+[developer_mode]
+tags = qt
+en = Developer Mode
+
+[enable_auto_regeneration_geometry_index]
+tags = qt
+en = Automatically regenerate the geometry index
+
+[search_everywhere]
+tags = qt
+en = Everywhere
+
+[search_viewport]
+tags = qt
+en = Viewport
+
+[category_request]
+tags = qt
+en = Category request
+
+[downloader_unuploaded_edits_delete_map]
+tags = qt
+en = Some map edits have not been uploaded yet. Delete this map anyway?
+
+[downloader_country_column]
+tags = qt
+en = Country
+
+[downloader_status_column]
+tags = qt
+en = Status
+
+[downloader_size_column]
+tags = qt
+en = Size
+
+[downloader_matched_by_column]
+tags = qt
+en = Matched by
+
+[downloader_rank_column]
+tags = qt
+en = Rank
+
+[locale_label]
+tags = qt
+en = locale:
+
+[search_query_label]
+tags = qt
+en = search query:
+
+[update_or_delete_region_confirmation]
+tags = qt
+en = Do you want to update or delete %@?
+
+[delete_region_confirmation]
+tags = qt
+en = Do you want to delete %@?
+
+[click_to_download]
+tags = qt
+en = Click to download
+
+[installed_click_to_delete]
+tags = qt
+en = Installed (click to delete)
+
+[out_of_date_click_to_update_or_delete]
+tags = qt
+en = Out of date (click to update or delete)
+
+[bookmark_files_filter]
+tags = qt
+en = KML, KMZ, GPX, JSON, GeoJSON files (*.kml *.KML *.kmz *.KMZ *.gpx *.GPX *.json *.JSON *.geojson *.GEOJSON)
+
+[select_bookmark_category_to_export]
+tags = qt
+en = Select one of the bookmark categories to export.
+
+[selected_item_not_bookmark_category]
+tags = qt
+en = Selected item is not a bookmark category.
+
+[gpx_filter]
+tags = qt
+en = GPX files (*.gpx)
+
+[geojson_filter]
+tags = qt
+en = GeoJSON files (*.geojson);JSON files (*.json)
+
+[kmz_filter]
+tags = qt
+en = KMZ files (*.kmz)
+
+[bookmarks_exported]
+tags = qt
+en = Bookmarks successfully exported.
+
+[bookmarks_export_error]
+tags = qt
+en = Could not export bookmarks: %@
+
+[cannot_save_selected_file]
+tags = qt
+en = Could not save the selected file.
+
+[cannot_delete_last_bookmark_category]
+tags = qt
+en = Could not delete the last category.
+
+[select_bookmark_item_to_delete]
+tags = qt
+en = Select a category, bookmark or track to delete.
+
+[unnamed_track]
+tags = qt
+en = No name
+
+[bookmark_title_with_type]
+comment = Bookmark tree item or place page title. %@ is the name.
+tags = qt
+en = %@ (Bookmark)
+
+[track_title_with_type]
+comment = Track tree item or place page title. %@ is the name.
+tags = qt
+en = %@ (Track)
+
+[mwms_borders_selection_settings]
+tags = qt
+en = MWM borders selection settings
+
+[get_borders_from_packed_polygon]
+tags = qt
+en = Get borders from packed_polygon.bin
+
+[get_borders_from_poly_files]
+tags = qt
+en = Get borders from *.poly files
+
+[show_borders_with_vertices]
+tags = qt
+en = Show borders with vertices
+
+[show_just_borders]
+tags = qt
+en = Show just borders
+
+[show_bounding_box]
+tags = qt
+en = Show bounding box
+
+[enter_login]
+tags = qt
+en = Enter your username or email
+
+[enter_password]
+tags = qt
+en = Enter your password
+
+[authentication_failed]
+tags = qt
+en = Authentication failed: %@
+
+[placepage_title]
+comment = Place page dialog window title
+tags = qt
+en = Place Page
+
+[placepage_bookmarked_title]
+comment = Place page dialog window title when the place is a bookmark
+tags = qt
+en = Place Page (bookmarked)
+
+[placepage_transit_routes]
+comment = Place page row label listing public transit routes serving this stop
+tags = qt
+en = Routes
+
+[placepage_coordinates]
+comment = Place page row label showing latitude and longitude
+tags = qt
+en = Coordinates
 
 [[3d touch strings]]
 
@@ -44564,7 +44865,7 @@ zh-Hant = 在地圖上選擇
 
 [choose_start_location]
 comment = Search field hint and full-screen map point picker title shown while choosing the starting point of a route. Kept short because shortcut and voice-search buttons narrow the field
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Start point
 af = Beginpunt
 ar = نقطة البداية
@@ -44625,7 +44926,7 @@ zh-Hant = 起點
 
 [choose_destination]
 comment = Search field hint and full-screen map point picker title shown while choosing the destination of a route. Kept short because shortcut and voice-search buttons narrow the field
-tags = android-app,apple-maps
+tags = android-app,apple-maps,qt
 en = Destination
 af = Bestemming
 ar = الوجهة
