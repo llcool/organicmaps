@@ -1,4 +1,5 @@
 #include "qt/place_page_dialog_common.hpp"
+#include "qt/qt_common/translations.hpp"
 
 #include "qt/draw_widget.hpp"
 
@@ -77,18 +78,18 @@ QToolBar * createActionToolBar(QWidget * parent, qt::DrawWidget * drawWidget, pl
 
   m2::PointD const mercator = info.GetMercator();
 
-  QAction * fromAction = toolBar->addAction(QIcon(":/navig64/point-start.png"), "Route From");
-  fromAction->setToolTip("Route From");
+  QAction * fromAction = toolBar->addAction(QIcon(":/navig64/point-start.png"), qt::Tr("p2p_from_here"));
+  fromAction->setToolTip(qt::Tr("p2p_from_here"));
   QObject::connect(fromAction, &QAction::triggered, parent,
                    [drawWidget, mercator] { drawWidget->RoutePointFromPlace(RouteMarkType::Start, mercator); });
 
-  QAction * stopAction = toolBar->addAction(QIcon(":/navig64/point-intermediate.png"), "Add Stop");
-  stopAction->setToolTip("Add Stop");
+  QAction * stopAction = toolBar->addAction(QIcon(":/navig64/point-intermediate.png"), qt::Tr("placepage_add_stop"));
+  stopAction->setToolTip(qt::Tr("placepage_add_stop"));
   QObject::connect(stopAction, &QAction::triggered, parent,
                    [drawWidget, mercator] { drawWidget->RoutePointFromPlace(RouteMarkType::Intermediate, mercator); });
 
-  QAction * toAction = toolBar->addAction(QIcon(":/navig64/point-finish.png"), "Route To");
-  toAction->setToolTip("Route To");
+  QAction * toAction = toolBar->addAction(QIcon(":/navig64/point-finish.png"), qt::Tr("p2p_to_here"));
+  toAction->setToolTip(qt::Tr("p2p_to_here"));
   QObject::connect(toAction, &QAction::triggered, parent,
                    [drawWidget, mercator] { drawWidget->RoutePointFromPlace(RouteMarkType::Finish, mercator); });
 
@@ -103,7 +104,7 @@ QToolBar * createActionToolBar(QWidget * parent, qt::DrawWidget * drawWidget, pl
   if (info.ShouldShowEditPlace())
   {
     FeatureID const featureId = info.GetID();
-    QAction * editAction = toolBar->addAction("Edit Place");
+    QAction * editAction = toolBar->addAction(qt::Tr("edit_place"));
     QObject::connect(editAction, &QAction::triggered, parent,
                      [drawWidget, featureId] { drawWidget->EditPlace(featureId); });
   }
@@ -166,17 +167,17 @@ QToolBar * createActionToolBar(QWidget * parent, qt::DrawWidget * drawWidget, pl
   return toolBar;
 }
 
-QLabel * addEntry(QGridLayout * grid, int & row, std::string const & key, std::string const & value, bool isLink)
+QLabel * addEntry(QGridLayout * grid, int & row, QString const & key, QString const & value, bool isLink)
 {
-  grid->addWidget(new QLabel(QString::fromStdString(key)), row, 0);
-  QLabel * label = new QLabel(QString::fromStdString(value));
+  grid->addWidget(new QLabel(key), row, 0);
+  QLabel * label = new QLabel(value);
   label->setTextInteractionFlags(Qt::TextSelectableByMouse);
   label->setWordWrap(true);
   if (isLink)
   {
     label->setOpenExternalLinks(true);
     label->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    label->setText(QString::fromStdString("<a href=\"" + value + "\">" + value + "</a>"));
+    label->setText(QString("<a href=\"%1\">%1</a>").arg(value.toHtmlEscaped()));
   }
   grid->addWidget(label, row++, 1);
   return label;
@@ -188,7 +189,7 @@ void addRoutesRow(QGridLayout * grid, int & row, qt::DrawWidget * drawWidget, pl
   if (routes.empty())
     return;
 
-  grid->addWidget(new QLabel("Routes"), row, 0);
+  grid->addWidget(new QLabel(qt::Tr("placepage_transit_routes")), row, 0);
 
   QComboBox * routesCombo = new QComboBox();
   // Placeholder so opening the widget does not auto-select (and trigger) the first route.
@@ -215,7 +216,7 @@ void addCoordinatesRow(QGridLayout * grid, int & row, place_page::Info const & i
   // with no polygon lookup, to gate the OS Grid etc.
   auto const entries = place_page::GetAvailableCoordinateFormats(info.GetLatLon(), info.GetCountryId());
 
-  grid->addWidget(new QLabel("Coordinates"), row, 0);
+  grid->addWidget(new QLabel(qt::Tr("placepage_coordinates")), row, 0);
 
   QLabel * value = new QLabel();
   value->setTextInteractionFlags(Qt::TextSelectableByMouse);  // selectable for copy

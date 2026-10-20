@@ -10,6 +10,7 @@
 #include "platform/style_utils.hpp"
 
 #include "qt/qt_common/helpers.hpp"
+#include "qt/qt_common/translations.hpp"
 
 #include <QLocale>
 #include <QtGui/QIcon>
@@ -39,18 +40,18 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
 {
   QIcon icon(":/ui/logo.png");
   setWindowIcon(icon);
-  setWindowTitle(tr("Preferences"));
+  setWindowTitle(Tr("settings"));
 
   QButtonGroup * unitsGroup = new QButtonGroup(this);
-  QGroupBox * unitsRadioBox = new QGroupBox("System of measurement");
+  QGroupBox * unitsRadioBox = new QGroupBox(Tr("measurement_units"));
   {
     QHBoxLayout * layout = new QHBoxLayout();
 
-    QRadioButton * radioButton = new QRadioButton("Metric");
+    QRadioButton * radioButton = new QRadioButton(Tr("kilometres"));
     layout->addWidget(radioButton);
     unitsGroup->addButton(radioButton, static_cast<int>(Units::Metric));
 
-    radioButton = new QRadioButton("Imperial (foot)");
+    radioButton = new QRadioButton(Tr("miles"));
     layout->addWidget(radioButton);
     unitsGroup->addButton(radioButton, static_cast<int>(Units::Imperial));
 
@@ -83,14 +84,14 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     });
   }
 
-  QCheckBox * largeFontCheckBox = new QCheckBox("Use larger font on the map");
+  QCheckBox * largeFontCheckBox = new QCheckBox(Tr("big_font"));
   {
     largeFontCheckBox->setChecked(framework.LoadLargeFontsSize());
     connect(largeFontCheckBox, &QCheckBox::toggled,
             [&framework](bool enabled) { framework.SetLargeFontsSize(enabled); });
   }
 
-  QCheckBox * transliterationCheckBox = new QCheckBox("Transliterate to Latin");
+  QCheckBox * transliterationCheckBox = new QCheckBox(Tr("transliteration_title"));
   {
     transliterationCheckBox->setChecked(framework.LoadTransliteration());
     connect(transliterationCheckBox, &QCheckBox::toggled, [&framework](bool enable)
@@ -100,7 +101,7 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     });
   }
 
-  QCheckBox * developerModeCheckBox = new QCheckBox("Developer Mode");
+  QCheckBox * developerModeCheckBox = new QCheckBox(Tr("developer_mode"));
   {
     bool developerMode;
     if (settings::Get(settings::kDeveloperMode, developerMode) && developerMode)
@@ -109,7 +110,7 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
             [](bool enabled) { settings::Set(settings::kDeveloperMode, enabled); });
   }
 
-  QLabel * mapLanguageLabel = new QLabel("Map Language");
+  QLabel * mapLanguageLabel = new QLabel(Tr("change_map_locale"));
   QComboBox * mapLanguageComboBox = new QComboBox();
   {
     // The property maxVisibleItems is ignored for non-editable comboboxes in styles that
@@ -138,25 +139,23 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     });
   }
 
-  QLabel * bookmarksPlacementLabel = new QLabel("Bookmark's text placement");
+  QLabel * bookmarksPlacementLabel = new QLabel(Tr("bookmarks_text_placement_title"));
   QComboBox * bookmarksPlacementCB = new QComboBox();
   {
     using settings::Placement;
 
-    QStringList lst;
-    for (int i = 0; i < static_cast<int>(Placement::Count); ++i)
-      lst << QString::fromStdString(ToString(static_cast<Placement>(i)));
-
-    bookmarksPlacementCB->addItems(lst);
-
-    bookmarksPlacementCB->setCurrentText(QString::fromStdString(ToString(Framework::GetBookmarksTextPlacement())));
+    static_assert(static_cast<int>(Placement::Count) == 3);
+    bookmarksPlacementCB->addItem(Tr("off"));
+    bookmarksPlacementCB->addItem(Tr("show_to_the_right"));
+    bookmarksPlacementCB->addItem(Tr("show_at_the_bottom"));
+    bookmarksPlacementCB->setCurrentIndex(static_cast<int>(Framework::GetBookmarksTextPlacement()));
 
     connect(bookmarksPlacementCB, &QComboBox::activated,
             [&framework](int index) { framework.SetBookmarksTextPlacement(static_cast<Placement>(index)); });
   }
 
   QButtonGroup * nightModeGroup = new QButtonGroup(this);
-  QGroupBox * nightModeRadioBox = new QGroupBox("Night Mode");
+  QGroupBox * nightModeRadioBox = new QGroupBox(Tr("pref_map_style_title"));
   {
     using namespace style_utils;
     QHBoxLayout * layout = new QHBoxLayout();
@@ -168,9 +167,9 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
       nightModeGroup->addButton(button, static_cast<int>(mode));
     };
 
-    addButton("Off", NightMode::Off);
-    addButton("On", NightMode::On);
-    addButton(tr("Follow system"), NightMode::System);
+    addButton(Tr("off"), NightMode::Off);
+    addButton(Tr("on"), NightMode::On);
+    addButton(Tr("follow_system"), NightMode::System);
 
     nightModeRadioBox->setLayout(layout);
 
@@ -257,7 +256,7 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
   }
 
 #ifdef BUILD_DESIGNER
-  QCheckBox * indexRegenCheckBox = new QCheckBox("Enable auto regeneration of geometry index");
+  QCheckBox * indexRegenCheckBox = new QCheckBox(Tr("enable_auto_regeneration_geometry_index"));
   {
     bool enabled = false;
     if (!settings::Get(kEnabledAutoRegenGeomIndex, enabled))
@@ -270,7 +269,7 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
 
   QHBoxLayout * bottomLayout = new QHBoxLayout();
   {
-    QPushButton * closeButton = new QPushButton(tr("Close"));
+    QPushButton * closeButton = new QPushButton(Tr("close"));
     closeButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     closeButton->setDefault(true);
     connect(closeButton, &QAbstractButton::clicked, [this]() { done(0); });

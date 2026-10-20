@@ -4,6 +4,7 @@
 #include "qt/screenshoter.hpp"
 
 #include "qt/qt_common/helpers.hpp"
+#include "qt/qt_common/translations.hpp"
 
 #include "map/framework.hpp"
 
@@ -171,6 +172,9 @@ int main(int argc, char * argv[])
 #else
   QApplication::setApplicationName("Organic Maps");
 #endif
+  auto const & preferred = languages::GetSystemPreferred();
+  auto qtTranslator = qt::InstallTranslator(app, {preferred.data(), preferred.size()});
+  UNUSED_VALUE(qtTranslator);
 
 #ifdef DEBUG
   static bool constexpr developerMode = true;
@@ -192,7 +196,8 @@ int main(int argc, char * argv[])
       reader.ReadAsString(buffer);
     }
     RemovePTagsWithNonMatchedLanguages(languages::GetCurrentTwine(), buffer);
-    qt::InfoDialog eulaDialog(QCoreApplication::applicationName(), buffer.c_str(), nullptr, {"Accept", "Decline"});
+    qt::InfoDialog eulaDialog(QCoreApplication::applicationName(), buffer.c_str(), nullptr,
+                              {qt::Tr("accept"), qt::Tr("decline")});
     eulaAccepted = (eulaDialog.exec() == 1);
     settings::Set(settingsEULA, eulaAccepted);
   }

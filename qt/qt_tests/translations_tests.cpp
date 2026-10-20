@@ -1,0 +1,55 @@
+#include "testing/testing.hpp"
+
+#include "qt/qt_common/translations.hpp"
+
+#include <QtWidgets/QApplication>
+
+#include <string>
+#include <vector>
+
+namespace translations_tests
+{
+QApplication & App()
+{
+  static int argc = 0;
+  static QApplication app(argc, nullptr);
+  return app;
+}
+
+UNIT_TEST(Translations_PreferenceOrderAndLocaleVariants)
+{
+  struct Case
+  {
+    std::vector<std::string> m_preferred;
+    std::string m_language;
+  };
+  for (auto const & test : std::vector<Case>{{{"zh-Hans-HK"}, "zh-Hans"},
+                                             {{"zh-CN-u-fw-mon"}, "zh-Hans"},
+                                             {{"zh_HK_#Hans"}, "zh-Hans"},
+                                             {{"zh_Hant_TW"}, "zh-Hant"},
+                                             {{"de@euro"}, "de"},
+                                             {{"pt_BR.UTF-8"}, "pt-BR"},
+                                             {{"pt-br"}, "pt-BR"},
+                                             {{"en_GB.UTF-8"}, "en-GB"},
+                                             {{"fr_CA.UTF-8"}, "fr-CA"},
+                                             {{"eo", "fr"}, "fr"},
+                                             {{"zha"}, "en"},
+                                             {{"C.UTF-8"}, "en"},
+                                             {{}, "en"}})
+  {
+    auto translator = qt::InstallTranslator(App(), test.m_preferred);
+    TEST_EQUAL(translator->language().toStdString(), test.m_language, (test.m_preferred));
+    TEST_NOT_EQUAL(qt::Tr("download_maps").toStdString(), "download_maps", (test.m_language));
+  }
+}
+
+UNIT_TEST(Translations_LayoutDirectionFollowsSelectedCatalog)
+{
+  for (std::string const language : {"ar", "he", "fr", "en"})
+  {
+    auto translator = qt::InstallTranslator(App(), {&language, 1});
+    TEST_EQUAL(static_cast<int>(App().layoutDirection()),
+               static_cast<int>(language == "ar" || language == "he" ? Qt::RightToLeft : Qt::LeftToRight), (language));
+  }
+}
+}  // namespace translations_tests

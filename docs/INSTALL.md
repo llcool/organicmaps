@@ -81,7 +81,9 @@ sudo apt update && sudo apt install -y \
     ninja-build \
     python3 \
     qt6-base-dev \
+    qt6-l10n-tools \
     qt6-positioning-dev \
+    qt6-tools-dev \
     libc++-dev \
     libfreetype-dev \
     libglvnd-dev \
@@ -101,11 +103,6 @@ sudo apt update && sudo apt install -y \
 | FreeType  | `2.13.1`        | `22.04` and older       | Install newer `libfreetype6` and `libfreetype-dev` from [PPA](https://launchpad.net/~reviczky/+archive/ubuntu/freetype) |
 | GeoClue   | `2.5.7`         | `20.04` and older       | Install newer `geoclue-2.0` from [PPA](https://launchpad.net/~savoury1/+archive/ubuntu/backports) |
 | Qt 6      | `6.4.0`         | `22.04` and older       | Build and install Qt 6.4 manually |
-
-
-```bash
-sudo add-apt-repository -y ppa:savoury1/qt-6-2
-```
 
 #### Linux Mint
 
@@ -129,6 +126,7 @@ sudo dnf install -y \
     qt6-qtpositioning \
     qt6-qtpositioning-devel \
     qt6-qtsvg-devel \
+    qt6-qttools-devel \
     sqlite-devel
 ```
 
@@ -145,6 +143,7 @@ sudo apk add \
     qt6-qtbase-dev \
     qt6-qtpositioning-dev \
     qt6-qtsvg-dev \
+    qt6-qttools-dev \
     samurai \
     sqlite-dev
 ```

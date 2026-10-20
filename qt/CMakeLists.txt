@@ -69,6 +69,42 @@ omim_add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${RES_SOURCES} ${SRC})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES AUTOMOC ON)
 
+file(GLOB_RECURSE QT_TRANSLATION_TS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/translations/*/organicmaps.ts")
+set(QT_TRANSLATION_QM)
+foreach(ts ${QT_TRANSLATION_TS})
+  get_filename_component(lang_dir "${ts}" DIRECTORY)
+  get_filename_component(lang "${lang_dir}" NAME)
+  string(TOLOWER "${lang}" resource_locale)
+  set(qm "${CMAKE_CURRENT_BINARY_DIR}/translations/organicmaps_${resource_locale}.qm")
+  add_custom_command(
+    OUTPUT "${qm}"
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_CURRENT_BINARY_DIR}/translations"
+    COMMAND ${CMAKE_COMMAND}
+      -D "LRELEASE=$<TARGET_FILE:Qt6::lrelease>"
+      -D "QT_VERSION=${Qt6Core_VERSION}"
+      -D "TS=${ts}"
+      -D "QM=${qm}"
+      -P "${CMAKE_CURRENT_SOURCE_DIR}/strict_lrelease.cmake"
+    DEPENDS Qt6::lrelease "${ts}" "${CMAKE_CURRENT_SOURCE_DIR}/strict_lrelease.cmake"
+    COMMENT "Compiling Qt translation ${lang}"
+    VERBATIM
+  )
+  list(APPEND QT_TRANSLATION_QM "${qm}")
+endforeach()
+
+add_custom_target(desktop_translations DEPENDS ${QT_TRANSLATION_QM})
+
+function(omim_add_qt_translations target)
+  add_dependencies(${target} desktop_translations)
+  qt6_add_resources(${target} "${target}_translations"
+    PREFIX "/translations"
+    BASE "${PROJECT_BINARY_DIR}/translations"
+    FILES ${QT_TRANSLATION_QM}
+  )
+endfunction()
+
+omim_add_qt_translations(${PROJECT_NAME})
+
 target_link_libraries(${PROJECT_NAME}
   PRIVATE
     generator  # For borders::LoadBorders
