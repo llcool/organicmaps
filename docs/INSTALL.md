@@ -84,6 +84,7 @@ sudo apt update && sudo apt install -y \
     qt6-l10n-tools \
     qt6-positioning-dev \
     qt6-tools-dev \
+    qt6-translations-l10n \
     libc++-dev \
     libfreetype-dev \
     libglvnd-dev \
@@ -127,6 +128,7 @@ sudo dnf install -y \
     qt6-qtpositioning-devel \
     qt6-qtsvg-devel \
     qt6-qttools-devel \
+    qt6-qttranslations \
     sqlite-devel
 ```
 
@@ -144,6 +146,7 @@ sudo apk add \
     qt6-qtpositioning-dev \
     qt6-qtsvg-dev \
     qt6-qttools-dev \
+    qt6-qttranslations \
     samurai \
     sqlite-dev
 ```

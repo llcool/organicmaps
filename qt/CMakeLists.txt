@@ -96,12 +96,29 @@ endforeach()
 
 add_custom_target(desktop_translations DEPENDS ${QT_TRANSLATION_QM})
 
+get_target_property(QT_QMAKE_EXECUTABLE Qt6::qmake IMPORTED_LOCATION)
+execute_process(
+  COMMAND "${QT_QMAKE_EXECUTABLE}" -query QT_INSTALL_TRANSLATIONS
+  OUTPUT_VARIABLE QT_BASE_TRANSLATIONS_DIR
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+  COMMAND_ERROR_IS_FATAL ANY
+)
+file(GLOB QT_BASE_TRANSLATIONS CONFIGURE_DEPENDS "${QT_BASE_TRANSLATIONS_DIR}/qtbase_*.qm")
+if(NOT QT_BASE_TRANSLATIONS)
+  message(FATAL_ERROR "Qt base translations are missing from ${QT_BASE_TRANSLATIONS_DIR}; install the Qt translations package")
+endif()
+
 function(omim_add_qt_translations target)
   add_dependencies(${target} desktop_translations)
   qt6_add_resources(${target} "${target}_translations"
     PREFIX "/translations"
     BASE "${PROJECT_BINARY_DIR}/translations"
     FILES ${QT_TRANSLATION_QM}
+  )
+  qt6_add_resources(${target} "${target}_qt_translations"
+    PREFIX "/translations"
+    BASE "${QT_BASE_TRANSLATIONS_DIR}"
+    FILES ${QT_BASE_TRANSLATIONS}
   )
 endfunction()
 

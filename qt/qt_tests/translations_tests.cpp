@@ -3,6 +3,8 @@
 #include "qt/qt_common/translations.hpp"
 
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QPushButton>
 
 #include <string>
 #include <vector>
@@ -50,6 +52,24 @@ UNIT_TEST(Translations_LayoutDirectionFollowsSelectedCatalog)
     auto translator = qt::InstallTranslator(App(), {&language, 1});
     TEST_EQUAL(static_cast<int>(App().layoutDirection()),
                static_cast<int>(language == "ar" || language == "he" ? Qt::RightToLeft : Qt::LeftToRight), (language));
+  }
+}
+
+UNIT_TEST(Translations_StandardControlsUseEmbeddedQtCatalog)
+{
+  struct Case
+  {
+    std::string m_language;
+    std::string m_cancel;
+    std::string m_yes;
+  };
+  for (auto const & test :
+       std::vector<Case>{{"fr", "Annuler", "Oui"}, {"en", "Cancel", "Yes"}, {"en-GB", "Cancel", "Yes"}})
+  {
+    auto translator = qt::InstallTranslator(App(), {&test.m_language, 1});
+    QDialogButtonBox buttons(QDialogButtonBox::Cancel | QDialogButtonBox::Yes);
+    TEST_EQUAL(buttons.button(QDialogButtonBox::Cancel)->text().toStdString(), test.m_cancel, (test.m_language));
+    TEST_EQUAL(buttons.button(QDialogButtonBox::Yes)->text().remove('&').toStdString(), test.m_yes, (test.m_language));
   }
 }
 }  // namespace translations_tests

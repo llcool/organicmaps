@@ -35,6 +35,13 @@ std::unique_ptr<QTranslator> InstallTranslator(QApplication & app, std::span<std
     }
   }
   CHECK(loaded, ("Missing embedded Qt translations, including English"));
+
+  // QObject ownership keeps the standard control translations alive with the app catalog.
+  auto * qtTranslator = new QTranslator(translator.get());
+  // Older Qt versions report failure when installing a valid empty English catalog.
+  if (qtTranslator->load(QLocale(translator->language()), "qtbase", "_", ":/translations") && !qtTranslator->isEmpty())
+    CHECK(app.installTranslator(qtTranslator), ());
+
   CHECK(app.installTranslator(translator.get()), ());
   app.setLayoutDirection(QLocale(translator->language()).textDirection());
   LOG(LINFO, ("Loaded Qt translation", translator->filePath().toStdString()));
