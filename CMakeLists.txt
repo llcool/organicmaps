@@ -168,9 +168,9 @@ if (NOT PLATFORM_IPHONE AND NOT PLATFORM_ANDROID)
 
   set(MINIMUM_REQUIRED_QT_VERSION 6.4.0)
   if (Qt6Core_VERSION VERSION_LESS ${MINIMUM_REQUIRED_QT_VERSION})
-    message(FATAL_ERROR "Unsupported Qt version: ${Qt6Widgets_VERSION}, the minimum required is ${MINIMUM_REQUIRED_QT_VERSION}")
+    message(FATAL_ERROR "Unsupported Qt version: ${Qt6Core_VERSION}, the minimum required is ${MINIMUM_REQUIRED_QT_VERSION}")
   else()
-    message(STATUS "Found Qt version: ${Qt6Widgets_VERSION}")
+    message(STATUS "Found Qt version: ${Qt6Core_VERSION}")
   endif()
 
   if (PLATFORM_LINUX AND Qt6_DIR MATCHES "/\\.?linuxbrew/")
