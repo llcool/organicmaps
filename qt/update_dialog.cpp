@@ -13,6 +13,7 @@
 #include <limits>
 
 #include <QtCore/QDateTime>
+#include <QtCore/QPointer>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -126,7 +127,7 @@ UpdateDialog::UpdateDialog(QWidget * parent, Framework & framework)
 
 UpdateDialog::~UpdateDialog()
 {
-  // Tell download manager that we're gone.
+  m_framework.GetSearchAPI().CancelSearch(search::Mode::Downloader);
   GetStorage().Unsubscribe(m_observerSlotId);
 }
 
@@ -250,10 +251,15 @@ void UpdateDialog::StartSearchInDownloader()
 
   auto const timestamp = m_fillTreeTimestamp;
 
-  DownloaderSearchParams params{m_query, m_locale,
-                                // m_onResults
-                                [this, timestamp](DownloaderSearchResults const & results)
+  DownloaderSearchParams params{
+      m_query, m_locale,
+      // m_onResults
+      [self = QPointer<UpdateDialog>(this), timestamp](DownloaderSearchResults const & results)
   {
+    // Cancellation does not remove results already queued for the GUI thread.
+    if (!self)
+      return;
+
     Filter filter;
     for (size_t i = 0; i < results.m_results.size(); ++i)
     {
@@ -263,7 +269,7 @@ void UpdateDialog::StartSearchInDownloader()
         LOG(LWARNING, ("Duplicate CountryId in results for query:", results.m_query));
     }
 
-    FillTree(filter, timestamp);
+    self->FillTree(filter, timestamp);
   }};
 
   m_framework.GetSearchAPI().SearchInDownloader(std::move(params));
