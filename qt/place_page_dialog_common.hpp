@@ -45,8 +45,8 @@ namespace place_page_dialog
 QToolBar * createActionToolBar(QWidget * parent, qt::DrawWidget * drawWidget, place_page::Info const & info);
 
 // Adds a key/value row to `grid` and increments `row`.
-// If `isLink`, wraps the value in <a href> markup.
-QLabel * addEntry(QGridLayout * grid, int & row, QString const & key, QString const & value, bool isLink = false);
+// A nonempty URL makes the displayed value a link to that URL.
+QLabel * addEntry(QGridLayout * grid, int & row, QString const & key, QString const & value, QString const & url = {});
 
 // If `info` has route refs, adds a "Routes" row to `grid` with a combo box that
 // shows the selected route's transit view via DrawWidget::GetFramework().ShowRouteTransit().

@@ -221,11 +221,13 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, qt::DrawWidget * draw
 
     // Links fragment
     if (auto website = info.GetMetadata(feature::Metadata::EType::FMD_WEBSITE); !website.empty())
-      addEntry(data, row, qt::Tr("website"), QString::fromStdString(std::string(stripSchemeFromURI(website))), true);
+      addEntry(data, row, qt::Tr("website"), QString::fromStdString(std::string(stripSchemeFromURI(website))),
+               QString::fromStdString(std::string(website)));
 
     if (auto heritageWebsite = info.GetMetadata(feature::Metadata::EType::FMD_HERITAGE_WEBSITE);
         !heritageWebsite.empty())
-      addEntry(data, row, "Heritage", QString::fromStdString(std::string(stripSchemeFromURI(heritageWebsite))), true);
+      addEntry(data, row, "Heritage", QString::fromStdString(std::string(stripSchemeFromURI(heritageWebsite))),
+               QString::fromStdString(std::string(heritageWebsite)));
 
     if (auto email = info.GetMetadata(feature::Metadata::EType::FMD_EMAIL); !email.empty())
     {

@@ -46,6 +46,8 @@ set(SRC
   place_page_dialog_developer.hpp
   place_page_dialog_user.cpp
   place_page_dialog_user.hpp
+  place_page_helpers.cpp
+  place_page_helpers.hpp
   preferences_dialog.cpp
   preferences_dialog.hpp
   popup_menu_holder.cpp

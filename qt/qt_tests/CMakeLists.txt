@@ -34,3 +34,10 @@ add_test(NAME strict_lrelease_tests
     -P "${CMAKE_CURRENT_SOURCE_DIR}/strict_lrelease_tests.cmake"
 )
 set_tests_properties(strict_lrelease_tests PROPERTIES LABELS "omim-test")
+
+omim_add_test(place_page_helpers_tests NO_PLATFORM_INIT
+  place_page_helpers_tests.cpp
+  ../place_page_helpers.cpp
+)
+target_link_libraries(place_page_helpers_tests PRIVATE Qt6::Gui)
+set_tests_properties(place_page_helpers_tests PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
