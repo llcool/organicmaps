@@ -43794,7 +43794,7 @@ en = GPX files (*.gpx)
 
 [geojson_filter]
 tags = qt
-en = GeoJSON files (*.geojson);JSON files (*.json)
+en = GeoJSON files (*.geojson);;JSON files (*.json)
 
 [kmz_filter]
 tags = qt
