@@ -1,6 +1,7 @@
 #include "qt/place_page_dialog_user.hpp"
 
 #include "qt/draw_widget.hpp"
+#include "qt/place_page_helpers.hpp"
 #include "qt/qt_common/text_dialog.hpp"
 #include "qt/qt_common/translations.hpp"
 
@@ -26,24 +27,6 @@
 
 namespace
 {
-static int constexpr kMaxLengthOfPlacePageDescription = 500;
-
-std::string getShortDescription(std::string const & description)
-{
-  std::string_view view(description);
-
-  auto const paragraphStart = view.find("<p>");
-  auto const paragraphEnd = view.find("</p>");
-
-  if (paragraphStart == 0 && paragraphEnd != std::string::npos)
-    view = view.substr(3, paragraphEnd - 3);
-
-  if (view.length() > kMaxLengthOfPlacePageDescription)
-    return std::string(view.substr(0, kMaxLengthOfPlacePageDescription - 3)) + "...";
-
-  return std::string(view);
-}
-
 std::string_view stripSchemeFromURI(std::string_view uri)
 {
   for (std::string_view prefix : {"https://", "http://"})
@@ -167,9 +150,7 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, qt::DrawWidget * draw
     // Description
     if (auto const & description = info.GetWikiDescription(); !description.empty())
     {
-      auto descriptionShort = getShortDescription(description);
-
-      QLabel * value = new QLabel(QString::fromStdString(descriptionShort));
+      QLabel * value = new QLabel(ShortDescription(description));
       value->setWordWrap(true);
 
       data->addWidget(value, row++, 0, 1, 2);

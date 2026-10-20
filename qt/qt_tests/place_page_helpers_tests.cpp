@@ -28,4 +28,22 @@ UNIT_TEST(PlacePage_LinkKeepsTargetAndEscapesDisplayedText)
   TEST_EQUAL(target.toStdString(), url.toStdString(), ());
   TEST(!QUrl(target).isRelative(), (target.toStdString()));
 }
+
+UNIT_TEST(PlacePage_DescriptionKeepsCompleteUnicodeCharacters)
+{
+  using place_page_dialog::ShortDescription;
+  TEST_EQUAL(ShortDescription("<p>First paragraph</p><p>Second</p>").toStdString(), "First paragraph", ());
+  TEST(ShortDescription("").isEmpty(), ());
+  auto const shortText = QString(200, QChar(u'é'));
+  TEST_EQUAL(ShortDescription(shortText.toStdString()).toStdString(), shortText.toStdString(), ());
+
+  auto const accented = ShortDescription(QString(300, QChar(u'é')).toStdString());
+  TEST_EQUAL(accented.toStdString(), (QString(248, QChar(u'é')) + QStringLiteral("…")).toStdString(), ());
+  TEST(!accented.contains(QChar::ReplacementCharacter), ());
+
+  auto const supplementary = ShortDescription(std::string(496, 'x') + "😀" + std::string(20, 'y'));
+  TEST_EQUAL(supplementary.toStdString(), std::string(496, 'x') + "…", ());
+  TEST_LESS_OR_EQUAL(supplementary.toUtf8().size(), 500, ());
+  TEST(!supplementary.contains(QChar::ReplacementCharacter), ());
+}
 }  // namespace place_page_helpers_tests
