@@ -58,6 +58,11 @@
 <source>Download</source>
 <translation>다운로드</translation>
 </message>
+<message id="bookmarks">
+<extracomment>Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied.</extracomment>
+<source>Bookmarks</source>
+<translation>북마크</translation>
+</message>
 <message id="bookmarks_and_tracks">
 <extracomment>&quot;Bookmarks and Tracks&quot; dialog title. Also used in iPhone home screen quick actions.</extracomment>
 <source>Bookmarks and Tracks</source>
@@ -78,15 +83,160 @@
 <source>Measurement units</source>
 <translation>측정 단위</translation>
 </message>
+<message id="category_eat">
+<extracomment>Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat!</extracomment>
+<source>Where to eat</source>
+<translation>어디서 먹을까</translation>
+</message>
+<message id="category_food">
+<extracomment>Search category for grocery stores; any changes should be duplicated in categories.txt @category_food!</extracomment>
+<source>Groceries</source>
+<translation>식료품들</translation>
+</message>
+<message id="category_transport">
+<extracomment>Search category for public transport; any changes should be duplicated in categories.txt @category_transport!</extracomment>
+<source>Transport</source>
+<translation>수송</translation>
+</message>
+<message id="category_fuel">
+<extracomment>Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel!</extracomment>
+<source>Gas</source>
+<translation>연료</translation>
+</message>
+<message id="category_parking">
+<extracomment>Search category for parking lots; any changes should be duplicated in categories.txt @category_parking!</extracomment>
+<source>Parking</source>
+<translation>주차</translation>
+</message>
+<message id="category_shopping">
+<extracomment>Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping!</extracomment>
+<source>Shopping</source>
+<translation>쇼핑</translation>
+</message>
+<message id="category_secondhand">
+<extracomment>Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand!</extracomment>
+<source>Second Hand</source>
+<translation>중고</translation>
+</message>
+<message id="category_hotel">
+<extracomment>Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel!</extracomment>
+<source>Hotel</source>
+<translation>호텔</translation>
+</message>
+<message id="category_tourism">
+<extracomment>Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism!</extracomment>
+<source>Sights</source>
+<translation>관광</translation>
+</message>
+<message id="category_entertainment">
+<extracomment>Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! Also a bookmarks list group header when sorting by type.</extracomment>
+<source>Entertainment</source>
+<translation>엔터테인먼트</translation>
+</message>
 <message id="category_atm">
 <extracomment>Search category for ATMs; any changes should be duplicated in categories.txt @category_atm!</extracomment>
 <source>ATM</source>
 <translation>ATM</translation>
 </message>
+<message id="category_nightlife">
+<extracomment>Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife!</extracomment>
+<source>Nightlife</source>
+<translation>유흥</translation>
+</message>
+<message id="category_children">
+<extracomment>Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children!</extracomment>
+<source>Family holiday</source>
+<translation>가족 기념일</translation>
+</message>
+<message id="category_bank">
+<extracomment>Search category for banks; any changes should be duplicated in categories.txt @category_bank!</extracomment>
+<source>Bank</source>
+<translation>은행</translation>
+</message>
+<message id="category_pharmacy">
+<extracomment>Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy!</extracomment>
+<source>Pharmacy</source>
+<translation>약국</translation>
+</message>
+<message id="category_hospital">
+<extracomment>Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital!</extracomment>
+<source>Hospital</source>
+<translation>병원</translation>
+</message>
+<message id="category_toilet">
+<extracomment>Search category for toilets; any changes should be duplicated in categories.txt @category_toilet!</extracomment>
+<source>Toilet</source>
+<translation>화장실</translation>
+</message>
+<message id="category_post">
+<extracomment>Search category for post offices; any changes should be duplicated in categories.txt @category_post!</extracomment>
+<source>Post</source>
+<translation>우편</translation>
+</message>
+<message id="category_police">
+<extracomment>Search category for police; any changes should be duplicated in categories.txt @category_police!</extracomment>
+<source>Police</source>
+<translation>경찰</translation>
+</message>
+<message id="category_recycling">
+<extracomment>Search category for recycling; any changes should be duplicated in categories.txt @category_recycling!</extracomment>
+<source>Recycling</source>
+<translation>재활용</translation>
+</message>
+<message id="category_water">
+<extracomment>Search category for water; any changes should be duplicated in categories.txt @category_water! Also a bookmarks list group header when sorting by type.</extracomment>
+<source>Water</source>
+<translation>물</translation>
+</message>
+<message id="category_rv">
+<extracomment>Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv!</extracomment>
+<source>RV Facilities</source>
+<translation>RV용</translation>
+</message>
+<message id="share">
+<extracomment>Share button text which opens menu with more buttons, like Message, EMail, Facebook etc.</extracomment>
+<source>Share</source>
+<translation>공유</translation>
+</message>
+<message id="share_my_position">
+<extracomment>Text shown before a shared &quot;my position&quot; link, and the email subject when sharing the current location.</extracomment>
+<source>I am here on Organic Maps</source>
+<translation>Organic Maps에서 여기에 있습니다</translation>
+</message>
+<message id="share_place_subject">
+<extracomment>Email subject when sharing a place. %1$@ is the place name or address.</extracomment>
+<source>%1 on Organic Maps</source>
+<translation>%1 - Organic Maps</translation>
+</message>
+<message id="share_place_subject_default">
+<extracomment>Email subject when sharing a place that has no name or address.</extracomment>
+<source>A place on Organic Maps</source>
+<translation>Organic Maps의 장소</translation>
+</message>
+<message id="share_open_in_om_or_browser">
+<extracomment>Shared email link text; opens the shared place in Organic Maps or in a web browser.</extracomment>
+<source>Open in Organic Maps or in a browser</source>
+<translation>Organic Maps 또는 브라우저에서 열기</translation>
+</message>
+<message id="share_get_om">
+<extracomment>Shared email link text; leads to the Organic Maps download page.</extracomment>
+<source>Get Organic Maps</source>
+<translation>Organic Maps 받기</translation>
+</message>
+<message id="open_in_app">
+<extracomment>Title for the &quot;Open in Another App&quot; button on the PlacePage; also shared email link text: opens the shared place in another (geo:) maps app.</extracomment>
+<source>Open in Another App</source>
+<translation>다른 앱에서 열기</translation>
+</message>
 <message id="email">
 <extracomment>Share by email button text, also used in editor and About.</extracomment>
 <source>Email</source>
 <translation>이메일</translation>
+</message>
+<message id="tracks_title">
+<extracomment>Title for tracks category in bookmarks manager</extracomment>
+<source>Tracks</source>
+<translation>트랙</translation>
 </message>
 <message id="prefs_group_route">
 <source>Navigation</source>
@@ -106,6 +256,31 @@
 <extracomment>Generic «On» string</extracomment>
 <source>On</source>
 <translation>켜기</translation>
+</message>
+<message id="pref_bg_tiles_title">
+<extracomment>Settings: title of the satellite imagery (custom raster tiles) screen</extracomment>
+<source>Satellite Imagery</source>
+<translation>위성 이미지</translation>
+</message>
+<message id="pref_bg_tiles_url_title">
+<extracomment>Settings «Satellite Imagery»: title of the tile server URL input field</extracomment>
+<source>Server URL</source>
+<translation>서버 URL</translation>
+</message>
+<message id="pref_bg_tiles_size_title">
+<extracomment>Settings «Satellite Imagery»: title of the on-disk tile cache size limit (in megabytes)</extracomment>
+<source>Cache size (MB)</source>
+<translation>캐시 크기 (MB)</translation>
+</message>
+<message id="pref_bg_tiles_opacity_title">
+<extracomment>Settings «Satellite Imagery»: opacity of vector area objects drawn over the imagery (0% hides them)</extracomment>
+<source>Area objects opacity</source>
+<translation>면 객체 불투명도</translation>
+</message>
+<message id="pref_bg_tiles_disclaimer">
+<extracomment>Settings «Satellite Imagery»: legal note that the user is responsible for the custom tile source they configure</extracomment>
+<source>Custom tile sources are provided by you. Use only services you are allowed to access. You are responsible for attribution, license terms, API keys, quotas, and usage limits.</source>
+<translation>사용자 지정 타일 소스는 사용자가 제공합니다. 접근 권한이 있는 서비스만 사용하세요. 출처 표시, 라이선스 약관, API 키, 할당량 및 사용 한도는 사용자 책임입니다.</translation>
 </message>
 <message id="website">
 <extracomment>Text in menu</extracomment>
@@ -183,6 +358,15 @@
 <source>Edit Place</source>
 <translation>장소 편집</translation>
 </message>
+<message id="street">
+<source>Street</source>
+<translation>거리</translation>
+</message>
+<message id="house_number">
+<extracomment>Editable House Number text field (in address block).</extracomment>
+<source>Building number</source>
+<translation>집 번호</translation>
+</message>
 <message id="cuisine">
 <source>Cuisine</source>
 <translation>요리</translation>
@@ -196,9 +380,47 @@
 <source>Floor</source>
 <translation>층</translation>
 </message>
+<message id="editor_edit_place_category_title">
+<source>Category</source>
+<translation>범주</translation>
+</message>
+<message id="downloader_of">
+<extracomment>Downloaded 10 **of** 20 &lt;- it is that &quot;of&quot;</extracomment>
+<source>%1 of %2</source>
+<translation>%2중의 %1</translation>
+</message>
+<message id="editor_storey_number">
+<source>Number of floors (maximum of %1)</source>
+<translation>층 수(최대 %1)</translation>
+</message>
 <message id="editor_operator">
 <source>Operator</source>
 <translation>연산자</translation>
+</message>
+<message id="kilometers_per_hour">
+<extracomment>abbreviation for kilometers per hour</extracomment>
+<source>km/h</source>
+<translation>km/h</translation>
+</message>
+<message id="miles_per_hour">
+<source>mph</source>
+<translation>mph</translation>
+</message>
+<message id="hour">
+<source>h</source>
+<translation>h</translation>
+</message>
+<message id="minute">
+<source>min</source>
+<translation>분</translation>
+</message>
+<message id="day">
+<source>d</source>
+<translation>일</translation>
+</message>
+<message id="second">
+<source>s</source>
+<translation>초</translation>
 </message>
 <message id="placepage_more_button">
 <source>More</source>
@@ -254,6 +476,10 @@
 <source>Cycling</source>
 <translation>사이클링</translation>
 </message>
+<message id="button_layer_subway">
+<source>Subway</source>
+<translation>지하철</translation>
+</message>
 <message id="export_file">
 <extracomment>Menu title for exporting a file in the default KMZ format</extracomment>
 <source>Export KMZ</source>
@@ -282,14 +508,85 @@
 <source>Show at the bottom</source>
 <translation>하단에 표시</translation>
 </message>
+<message id="routing_options_driving">
+<extracomment>Driving profile in routing options settings.</extracomment>
+<source>Driving</source>
+<translation>자동차</translation>
+</message>
+<message id="routing_options_cycling">
+<extracomment>Cycling profile in routing options settings.</extracomment>
+<source>Cycling</source>
+<translation>자전거</translation>
+</message>
+<message id="routing_options_walking">
+<extracomment>Walking profile in routing options settings.</extracomment>
+<source>Walking</source>
+<translation>도보</translation>
+</message>
+<message id="toll_road">
+<source>Toll road</source>
+<translation>유료 도로</translation>
+</message>
+<message id="unpaved_road">
+<source>Unpaved road</source>
+<translation>비포장 도로</translation>
+</message>
+<message id="ferry_crossing">
+<source>Ferry crossing</source>
+<translation>여객선 횡단길</translation>
+</message>
+<message id="road_warning_steps">
+<extracomment>Route warning shown on the map for this obstacle type.</extracomment>
+<source>Stairs</source>
+<translation>계단</translation>
+</message>
+<message id="road_warning_gate">
+<extracomment>Route warning shown on the map for this obstacle type.</extracomment>
+<source>Gate</source>
+<translation>게이트</translation>
+</message>
+<message id="road_warning_lift_gate">
+<extracomment>Route warning shown on the map for this obstacle type.</extracomment>
+<source>Lift Gate</source>
+<translation>차량차단기</translation>
+</message>
 <message id="yes">
 <extracomment>A generic &quot;Yes&quot; button in dialogs</extracomment>
 <source>Yes</source>
 <translation>네</translation>
 </message>
+<message id="no">
+<extracomment>A generic &quot;No&quot; button in dialogs</extracomment>
+<source>No</source>
+<translation>아니오</translation>
+</message>
 <message id="ok">
 <source>OK</source>
 <translation>확인</translation>
+</message>
+<message id="week_ago_sorttype">
+<source>A week ago</source>
+<translation>일주일 전</translation>
+</message>
+<message id="month_ago_sorttype">
+<source>A month ago</source>
+<translation>한달 전</translation>
+</message>
+<message id="moremonth_ago_sorttype">
+<source>More than a month ago</source>
+<translation>한달 그 이상 전</translation>
+</message>
+<message id="moreyear_ago_sorttype">
+<source>More than a year ago</source>
+<translation>1년 그 이상 전</translation>
+</message>
+<message id="near_me_sorttype">
+<source>Near me</source>
+<translation>나와 가까운 곳</translation>
+</message>
+<message id="others_sorttype">
+<source>Others</source>
+<translation>기타</translation>
 </message>
 <message id="invalid_username_or_password">
 <source>Invalid username or password.</source>
@@ -299,13 +596,81 @@
 <source>Phone</source>
 <translation>전화</translation>
 </message>
+<message id="editor_add_select_category">
+<source>Select category</source>
+<translation>범주 선택</translation>
+</message>
 <message id="refresh">
 <source>Update</source>
 <translation>최신 정보</translation>
 </message>
+<message id="downloader_process">
+<source>Downloading %1…</source>
+<translation>%1 다운로드 중…</translation>
+</message>
 <message id="downloader_applying">
 <source>Applying %1…</source>
 <translation>%1 적용 중…</translation>
+</message>
+<message id="food_places">
+<source>Food</source>
+<translation>음식</translation>
+</message>
+<message id="tourist_places">
+<source>Sights</source>
+<translation>명소</translation>
+</message>
+<message id="museums">
+<source>Museums</source>
+<translation>박물관</translation>
+</message>
+<message id="parks">
+<source>Parks</source>
+<translation>공원</translation>
+</message>
+<message id="swim_places">
+<source>Swim</source>
+<translation>수영</translation>
+</message>
+<message id="mountains">
+<source>Mountains</source>
+<translation>산</translation>
+</message>
+<message id="animals">
+<source>Animals</source>
+<translation>동물원</translation>
+</message>
+<message id="hotels">
+<source>Hotels</source>
+<translation>호텔</translation>
+</message>
+<message id="buildings">
+<source>Buildings</source>
+<translation>빌딩</translation>
+</message>
+<message id="money">
+<source>Money</source>
+<translation>돈</translation>
+</message>
+<message id="shops">
+<source>Shops</source>
+<translation>상점</translation>
+</message>
+<message id="parkings">
+<source>Parking</source>
+<translation>주차장</translation>
+</message>
+<message id="fuel_places">
+<source>Gas Stations</source>
+<translation>주유소</translation>
+</message>
+<message id="medicine">
+<source>Medicine</source>
+<translation>의료</translation>
+</message>
+<message id="religious_places">
+<source>Religious places</source>
+<translation>종교적 장소</translation>
 </message>
 <message id="button_layer_isolines">
 <source>Contour Lines</source>
@@ -316,10 +681,19 @@
 <source>Map language</source>
 <translation>지도 언어</translation>
 </message>
+<message id="translated_om_site_url">
+<extracomment>Include only languages supported on the website, add new translations here: https://github.com/organicmaps/website/tree/master/content</extracomment>
+<source>https://organicmaps.app/</source>
+<translation>https://organicmaps.app/</translation>
+</message>
 <message id="button_layer_outdoor">
 <extracomment>Outdoors/hiking map style (activity) name in the Styles and Layers dialog</extracomment>
 <source>Outdoors</source>
 <translation>하이킹</translation>
+</message>
+<message id="drive_through">
+<source>Drive-through</source>
+<translation>드라이브 스루</translation>
 </message>
 <message id="zoom_in">
 <extracomment>Accessibility text for the zoom-in button on the map and visible title for the CarPlay dashboard button. Keep it short.</extracomment>
@@ -331,6 +705,25 @@
 <source>Zoom out</source>
 <translation>축소</translation>
 </message>
+<message id="website_menu">
+<extracomment>Restaurant or other food place&#x27;s menu URL field in the Editor</extracomment>
+<source>Menu Link</source>
+<translation>메뉴 링크</translation>
+</message>
+<message id="self_service">
+<extracomment>To indicate if the place proposed self service…</extracomment>
+<source>Self-service</source>
+<translation>셀프 서비스</translation>
+</message>
+<message id="outdoor_seating">
+<extracomment>To indicate if restaurant or other place has outdoor seating</extracomment>
+<source>Outdoor seating</source>
+<translation>야외 좌석</translation>
+</message>
+<message id="choose_color">
+<source>Choose Color</source>
+<translation>색상 선택</translation>
+</message>
 <message id="follow_system">
 <extracomment>Setting option to sync the app&#x27;s theme with the operating system&#x27;s dark/light mode</extracomment>
 <source>Follow the system</source>
@@ -341,15 +734,122 @@
 <source>Clear</source>
 <translation>지우기</translation>
 </message>
+<message id="contribute_to_osm_add_place">
+<source>Add Place</source>
+<translation>장소 추가</translation>
+</message>
 <message id="core_my_position">
 <extracomment>A text for current gps location point/arrow selected on the map</extracomment>
 <source>My Position</source>
 <translation>나의 위치</translation>
 </message>
+<message id="core_my_places">
+<extracomment>Default bookmark list name</extracomment>
+<source>My Places</source>
+<translation>내 장소</translation>
+</message>
 <message id="category_wifi">
 <extracomment>Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi!</extracomment>
 <source>WiFi</source>
 <translation>WiFi 인터넷</translation>
+</message>
+<message id="postal_code">
+<source>Postal Code</source>
+<translation>우편 번호</translation>
+</message>
+<message id="core_placepage_unknown_place">
+<extracomment>Place Page title for long tap</extracomment>
+<source>Map Point</source>
+<translation>지도 지점</translation>
+</message>
+<message id="m">
+<extracomment>abbreviation for meters</extracomment>
+<source>m</source>
+<translation>m</translation>
+</message>
+<message id="km">
+<extracomment>abbreviation for kilometers</extracomment>
+<source>km</source>
+<translation>km</translation>
+</message>
+<message id="mi">
+<extracomment>abbreviation for mile(s)</extracomment>
+<source>mi</source>
+<translation>mi</translation>
+</message>
+<message id="ft">
+<extracomment>A unit of measure</extracomment>
+<source>ft</source>
+<translation>풋</translation>
+</message>
+<message id="core_exit">
+<extracomment>Subway exits for public transport marks on the map</extracomment>
+<source>Exit</source>
+<translation>끝내기</translation>
+</message>
+<message id="core_entrance">
+<source>Entrance</source>
+<translation>입구</translation>
+</message>
+<message id="download_region_with_size">
+<extracomment>Download button: first placeholder is the region, second is the formatted size.</extracomment>
+<source>Download %1 (%2)</source>
+<translation>Download %1 (%2)</translation>
+</message>
+<message id="region_queued_for_download">
+<extracomment>Map download status; %@ is the region name.</extracomment>
+<source>%1 is queued for download</source>
+<translation>%1 is queued for download</translation>
+</message>
+<message id="retry_region_download">
+<extracomment>Retry button; %@ is the region name.</extracomment>
+<source>Retry downloading %1</source>
+<translation>Retry downloading %1</translation>
+</message>
+<message id="downloading_region_progress">
+<extracomment>Map download progress: first placeholder is the region, second is the formatted percentage.</extracomment>
+<source>Downloading %1 (%2)</source>
+<translation>Downloading %1 (%2)</translation>
+</message>
+<message id="route_along_track">
+<extracomment>Route action for a selected track.</extracomment>
+<source>Route Along Track</source>
+<translation>Route Along Track</translation>
+</message>
+<message id="copy_link">
+<extracomment>Copies the selected place link to the clipboard.</extracomment>
+<source>Copy Link</source>
+<translation>Copy Link</translation>
+</message>
+<message id="copy_text">
+<extracomment>Copies the selected place details to the clipboard.</extracomment>
+<source>Copy Text</source>
+<translation>Copy Text</translation>
+</message>
+<message id="select_transit_route">
+<extracomment>Placeholder for the public transport route selector.</extracomment>
+<source>Select a route…</source>
+<translation>Select a route…</translation>
+</message>
+<message id="switch_coordinates_format">
+<extracomment>Tooltip for cycling coordinate formats.</extracomment>
+<source>Switch coordinate format</source>
+<translation>Switch coordinate format</translation>
+</message>
+<message id="bookmark_color">
+<extracomment>Bookmark color row label.</extracomment>
+<source>Bookmark color</source>
+<translation>Bookmark color</translation>
+</message>
+<message id="heritage_website">
+<extracomment>Website for the place’s heritage designation.</extracomment>
+<source>Heritage website</source>
+<translation>Heritage website</translation>
+</message>
+<message id="wikipedia_place_title">
+<extracomment>Wikipedia description dialog title; %@ is the place name.</extracomment>
+<source>Wikipedia: %1</source>
+<translation>Wikipedia: %1</translation>
 </message>
 <message id="app_exit">
 <source>Exit</source>
@@ -369,6 +869,7 @@
 <translation>Looking for position…</translation>
 </message>
 <message id="public_transport">
+<extracomment>Public transport routing profile, including subway and trains.</extracomment>
 <source>Public transport</source>
 <translation>Public transport</translation>
 </message>
@@ -553,8 +1054,8 @@
 <translation>GPX files (*.gpx)</translation>
 </message>
 <message id="geojson_filter">
-<source>GeoJSON files (*.geojson);JSON files (*.json)</source>
-<translation>GeoJSON files (*.geojson);JSON files (*.json)</translation>
+<source>GeoJSON files (*.geojson);;JSON files (*.json)</source>
+<translation>GeoJSON files (*.geojson);;JSON files (*.json)</translation>
 </message>
 <message id="kmz_filter">
 <source>KMZ files (*.kmz)</source>
@@ -659,6 +1160,86 @@
 <extracomment>Search field hint and full-screen map point picker title shown while choosing the destination of a route. Kept short because shortcut and voice-search buttons narrow the field</extracomment>
 <source>Destination</source>
 <translation>목적지</translation>
+</message>
+<message id="routing_coordinates_hint">
+<extracomment>Placeholder for a routing endpoint, entered as a latitude and longitude pair.</extracomment>
+<source>Latitude, longitude</source>
+<translation>Latitude, longitude</translation>
+</message>
+<message id="routing_mode">
+<extracomment>Label of the routing profile selector, e.g. driving, walking, cycling.</extracomment>
+<source>Routing mode</source>
+<translation>Routing mode</translation>
+</message>
+<message id="show_route_turns">
+<extracomment>Routing settings checkbox to display turn markers on the map.</extracomment>
+<source>Show turns</source>
+<translation>Show turns</translation>
+</message>
+<message id="remember_routing_settings">
+<extracomment>Routing settings checkbox to reuse the current settings after restarting the app.</extracomment>
+<source>Remember these settings for the next session</source>
+<translation>Remember these settings for the next session</translation>
+</message>
+<message id="invalid_route_coordinates">
+<extracomment>Routing error shown when a start or destination coordinate pair cannot be parsed.</extracomment>
+<source>The start or destination coordinates are invalid.</source>
+<translation>The start or destination coordinates are invalid.</translation>
+</message>
+<message id="fax">
+<extracomment>Fax number field in the OpenStreetMap editor.</extracomment>
+<source>Fax</source>
+<translation>Fax</translation>
+</message>
+<message id="hotel_stars">
+<extracomment>Hotel star classification field in the OpenStreetMap editor.</extracomment>
+<source>Stars</source>
+<translation>Stars</translation>
+</message>
+<message id="internet_access">
+<extracomment>Internet access field in the OpenStreetMap editor.</extracomment>
+<source>Internet access</source>
+<translation>Internet access</translation>
+</message>
+<message id="elevation">
+<extracomment>Elevation above sea level field in the OpenStreetMap editor.</extracomment>
+<source>Elevation</source>
+<translation>Elevation</translation>
+</message>
+<message id="apartment_numbers">
+<extracomment>Apartment numbers field in the OpenStreetMap address editor.</extracomment>
+<source>Apartment numbers</source>
+<translation>Apartment numbers</translation>
+</message>
+<message id="height">
+<extracomment>Object height field in the OpenStreetMap editor.</extracomment>
+<source>Height</source>
+<translation>Height</translation>
+</message>
+<message id="religious_denomination">
+<extracomment>Religious denomination field for a place of worship in the OpenStreetMap editor.</extracomment>
+<source>Religious denomination</source>
+<translation>Religious denomination</translation>
+</message>
+<message id="not_specified">
+<extracomment>An optional property has no value set, e.g. internet access in the OpenStreetMap editor.</extracomment>
+<source>Not specified</source>
+<translation>Not specified</translation>
+</message>
+<message id="wired_internet">
+<extracomment>Internet access option for a wired connection in the OpenStreetMap editor.</extracomment>
+<source>Wired</source>
+<translation>Wired</translation>
+</message>
+<message id="internet_terminal">
+<extracomment>Internet access option for a public computer in the OpenStreetMap editor.</extracomment>
+<source>Internet terminal</source>
+<translation>Internet terminal</translation>
+</message>
+<message id="qt_license_notice">
+<extracomment>About dialog: %@ placeholders are paths to license files. Preserve the Qt company name.</extracomment>
+<source>Qt 6 (C) The Qt Company Ltd. and other contributors. License texts: %1 and %2.</source>
+<translation>Qt 6 (C) The Qt Company Ltd. and other contributors. License texts: %1 and %2.</translation>
 </message>
 </context>
 </TS>
