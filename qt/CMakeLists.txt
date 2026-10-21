@@ -71,16 +71,11 @@ omim_add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${RES_SOURCES} ${SRC})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES AUTOMOC ON)
 
-file(GLOB_RECURSE QT_TRANSLATION_TS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/translations/*/organicmaps.ts")
-set(QT_TRANSLATION_QM)
-foreach(ts ${QT_TRANSLATION_TS})
-  get_filename_component(lang_dir "${ts}" DIRECTORY)
-  get_filename_component(lang "${lang_dir}" NAME)
-  string(TOLOWER "${lang}" resource_locale)
-  set(qm "${CMAKE_CURRENT_BINARY_DIR}/translations/organicmaps_${resource_locale}.qm")
+function(omim_compile_qt_catalog ts qm)
+  get_filename_component(output_dir "${qm}" DIRECTORY)
   add_custom_command(
     OUTPUT "${qm}"
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_CURRENT_BINARY_DIR}/translations"
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${output_dir}"
     COMMAND ${CMAKE_COMMAND}
       -D "LRELEASE=$<TARGET_FILE:Qt6::lrelease>"
       -D "QT_VERSION=${Qt6Core_VERSION}"
@@ -88,10 +83,37 @@ foreach(ts ${QT_TRANSLATION_TS})
       -D "QM=${qm}"
       -P "${CMAKE_CURRENT_SOURCE_DIR}/strict_lrelease.cmake"
     DEPENDS Qt6::lrelease "${ts}" "${CMAKE_CURRENT_SOURCE_DIR}/strict_lrelease.cmake"
-    COMMENT "Compiling Qt translation ${lang}"
     VERBATIM
   )
+endfunction()
+
+file(GLOB_RECURSE QT_TRANSLATION_TS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/translations/*/organicmaps.ts")
+find_package(Python3 3.10 REQUIRED COMPONENTS Interpreter)
+set(TWINE_DIR "${OMIM_ROOT}/tools/python/twine/python_twine")
+file(GLOB_RECURSE TWINE_SOURCES CONFIGURE_DEPENDS "${TWINE_DIR}/twine/*.py")
+set(QT_TRANSLATION_QM)
+foreach(ts ${QT_TRANSLATION_TS})
+  get_filename_component(lang_dir "${ts}" DIRECTORY)
+  get_filename_component(lang "${lang_dir}" NAME)
+  string(TOLOWER "${lang}" resource_locale)
+  set(qm "${CMAKE_CURRENT_BINARY_DIR}/translations/organicmaps_${resource_locale}.qm")
+  omim_compile_qt_catalog("${ts}" "${qm}")
   list(APPEND QT_TRANSLATION_QM "${qm}")
+
+  # Type catalogs are build artifacts: their shared source already contains every consumer's keys.
+  set(types_ts "${CMAKE_CURRENT_BINARY_DIR}/translations/types_${resource_locale}.ts")
+  set(types_qm "${CMAKE_CURRENT_BINARY_DIR}/translations/organicmaps_types_${resource_locale}.qm")
+  add_custom_command(
+    OUTPUT "${types_ts}"
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_CURRENT_BINARY_DIR}/translations"
+    COMMAND ${Python3_EXECUTABLE} "${TWINE_DIR}/twine_cli.py" generate-localization-file
+      "${OMIM_ROOT}/data/strings/types_strings.txt" "${types_ts}"
+      -f qt --include all -l "${lang}"
+    DEPENDS "${OMIM_ROOT}/data/strings/types_strings.txt" "${TWINE_DIR}/twine_cli.py" ${TWINE_SOURCES}
+    VERBATIM
+  )
+  omim_compile_qt_catalog("${types_ts}" "${types_qm}")
+  list(APPEND QT_TRANSLATION_QM "${types_qm}")
 endforeach()
 
 add_custom_target(desktop_translations DEPENDS ${QT_TRANSLATION_QM})

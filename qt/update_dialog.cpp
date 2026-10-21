@@ -13,6 +13,7 @@
 #include <limits>
 
 #include <QtCore/QDateTime>
+#include <QtCore/QLocale>
 #include <QtCore/QPointer>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -431,19 +432,11 @@ void UpdateDialog::UpdateRowWithCountryInfo(QTreeWidgetItem * item, CountryId co
 
   if (size.second > 0)
   {
-    int const halfMb = 512 * 1024;
-    int const Mb = 1024 * 1024;
-
-    if (size.second > Mb)
-    {
-      item->setText(KColumnIndexSize,
-                    QString("%1/%2 MB").arg(uint((size.first + halfMb) / Mb)).arg(uint((size.second + halfMb) / Mb)));
-    }
-    else
-    {
-      item->setText(KColumnIndexSize,
-                    QString("%1/%2 kB").arg(uint((size.first + 1023) / 1024)).arg(uint((size.second + 1023) / 1024)));
-    }
+    QLocale const locale;
+    item->setText(KColumnIndexSize,
+                  Tr("downloader_of")
+                      .arg(locale.formattedDataSize(size.first, 0, QLocale::DataSizeTraditionalFormat),
+                           locale.formattedDataSize(size.second, 0, QLocale::DataSizeTraditionalFormat)));
 
     item->setData(KColumnIndexSize, Qt::UserRole, QVariant(static_cast<qint64>(size.second)));
   }
@@ -455,10 +448,7 @@ void UpdateDialog::UpdateRowWithCountryInfo(QTreeWidgetItem * item, CountryId co
 
 QString UpdateDialog::GetNodeName(CountryId const & countryId)
 {
-  // QString const text = QString::fromUtf8(GetStorage().CountryName(countryId).c_str()); // ???
-  NodeAttrs attrs;
-  GetStorage().GetNodeAttrs(countryId, attrs);
-  return attrs.m_nodeLocalName.c_str();
+  return QString::fromStdString(GetStorage().GetNodeLocalName(countryId));
 }
 
 QTreeWidgetItem * UpdateDialog::CreateTreeItem(CountryId const & countryId, size_t posInRanking, string matchedBy,
@@ -510,8 +500,11 @@ void UpdateDialog::OnCountryChanged(CountryId const & countryId)
 void UpdateDialog::OnCountryDownloadProgress(CountryId const & countryId, downloader::Progress const & progress)
 {
   auto const items = GetTreeItemsByCountryId(countryId);
+  QLocale const locale;
   for (auto const item : items)
-    item->setText(KColumnIndexSize, QString("%1%").arg(progress.m_bytesDownloaded * 100 / progress.m_bytesTotal));
+    item->setText(KColumnIndexSize,
+                  locale.toString(static_cast<qulonglong>(progress.m_bytesDownloaded * 100 / progress.m_bytesTotal)) +
+                      locale.percent());
 }
 
 void UpdateDialog::ShowModal()

@@ -200,7 +200,7 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     });
   }
 
-  QGroupBox * tilesBox = new QGroupBox("Satellite Imagery");
+  QGroupBox * tilesBox = new QGroupBox(Tr("pref_bg_tiles_title"));
   {
     QVBoxLayout * layout = new QVBoxLayout();
 
@@ -211,20 +211,19 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     QSpinBox * sizeSpin = new QSpinBox();
     sizeSpin->setRange(1, 1000);
     sizeSpin->setValue(static_cast<int>(framework.GetBackgroundTilesCacheSize()));
-    sizeSpin->setSuffix(" MB");
 
     // Opacity of vector area objects drawn over the imagery: 0 % hides them, 100 % is fully opaque.
     QSpinBox * opacitySpin = new QSpinBox();
     opacitySpin->setRange(0, 100);
     opacitySpin->setValue(static_cast<int>(framework.GetBackgroundTilesAreaOpacity()));
-    opacitySpin->setSuffix(" %");
+    opacitySpin->setSuffix(" " + QLocale().percent());
 
     QFormLayout * form = new QFormLayout();
-    form->addRow("Server URL", urlEdit);
-    form->addRow("Cache size", sizeSpin);
-    form->addRow("Area objects opacity", opacitySpin);
+    form->addRow(Tr("pref_bg_tiles_url_title"), urlEdit);
+    form->addRow(Tr("pref_bg_tiles_size_title"), sizeSpin);
+    form->addRow(Tr("pref_bg_tiles_opacity_title"), opacitySpin);
 
-    QCheckBox * enableCheckBox = new QCheckBox("Satellite Imagery");
+    QCheckBox * enableCheckBox = new QCheckBox(Tr("pref_bg_tiles_title"));
     enableCheckBox->setChecked(framework.IsBackgroundTilesEnabled());
     auto const updateEnabled = [urlEdit, sizeSpin, opacitySpin](bool en)
     {
@@ -244,9 +243,7 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
                                    static_cast<uint32_t>(opacitySpin->value()));
     });
 
-    QLabel * disclaimer = new QLabel(
-        "Custom tile sources are provided by you. Use only services you are allowed to access. You are "
-        "responsible for attribution, license terms, API keys, quotas, and usage limits.");
+    QLabel * disclaimer = new QLabel(Tr("pref_bg_tiles_disclaimer"));
     disclaimer->setWordWrap(true);
 
     layout->addWidget(enableCheckBox);

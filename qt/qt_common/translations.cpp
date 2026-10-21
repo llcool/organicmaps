@@ -36,6 +36,11 @@ std::unique_ptr<QTranslator> InstallTranslator(QApplication & app, std::span<std
   }
   CHECK(loaded, ("Missing embedded Qt translations, including English"));
 
+  auto * typesTranslator = new QTranslator(translator.get());
+  CHECK(typesTranslator->load(QString(":/translations/organicmaps_types_%1.qm").arg(translator->language().toLower())),
+        ("Missing embedded feature type translations"));
+  CHECK(app.installTranslator(typesTranslator), ());
+
   // QObject ownership keeps the standard control translations alive with the app catalog.
   auto * qtTranslator = new QTranslator(translator.get());
   // Older Qt versions report failure when installing a valid empty English catalog.

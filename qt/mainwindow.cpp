@@ -24,7 +24,6 @@
 #include "base/assert.hpp"
 
 #include <functional>
-#include <sstream>
 #include <string>
 
 #include "std/target_os.hpp"
@@ -42,6 +41,7 @@
 #include <QtWidgets/QMessageBox>
 #endif  // BUILD_DESIGNER
 
+#include <QtCore/QLocale>
 #include <QtGui/QCloseEvent>
 #include <QtWidgets/QDockWidget>
 #include <QtWidgets/QHBoxLayout>
@@ -66,27 +66,6 @@ namespace qt
 {
 namespace
 {
-void FormatMapSize(uint64_t sizeInBytes, std::string & units, size_t & sizeToDownload)
-{
-  int constexpr mbInBytes = 1024 * 1024;
-  int constexpr kbInBytes = 1024;
-  if (sizeInBytes > mbInBytes)
-  {
-    sizeToDownload = (sizeInBytes + mbInBytes - 1) / mbInBytes;
-    units = "MB";
-  }
-  else if (sizeInBytes > kbInBytes)
-  {
-    sizeToDownload = (sizeInBytes + kbInBytes - 1) / kbInBytes;
-    units = "KB";
-  }
-  else
-  {
-    sizeToDownload = sizeInBytes;
-    units = "B";
-  }
-}
-
 template <class T>
 T * CreateBlackControl(QString const & name)
 {
@@ -293,7 +272,7 @@ void MainWindow::CreateNavigationBar()
     //                     std::bind(&MainWindow::OnLayerEnabled, this, TRAFFIC), true);
     // m_layers->setChecked(TRAFFIC, Framework::LoadTrafficEnabled());
 
-    m_layers->addAction(QIcon(":/navig64/subway.png"), Tr("public_transport"),
+    m_layers->addAction(QIcon(":/navig64/subway.png"), Tr("button_layer_subway"),
                         std::bind(&MainWindow::OnLayerEnabled, this, TRANSIT), true);
     m_layers->setChecked(TRANSIT, Framework::LoadTransitSchemeEnabled());
 
@@ -490,38 +469,32 @@ void MainWindow::CreateCountryStatusControls()
 
     auto const & storage = GetFramework().GetStorage();
     auto status = storage.CountryStatusEx(countryId);
-    auto const & countryName = countryId;
+    auto const countryName = QString::fromStdString(storage.GetNodeLocalName(countryId));
 
     if (status == storage::Status::NotDownloaded)
     {
       m_downloadButton->setVisible(true);
 
-      std::string units;
-      size_t sizeToDownload = 0;
-      FormatMapSize(storage.CountrySizeInBytes(countryId).second, units, sizeToDownload);
-      std::stringstream str;
-      str << "Download (" << countryName << ") " << sizeToDownload << units;
-      m_downloadButton->setText(str.str().c_str());
+      auto const size = QLocale().formattedDataSize(static_cast<qint64>(storage.CountrySizeInBytes(countryId).second),
+                                                    0, QLocale::DataSizeTraditionalFormat);
+      m_downloadButton->setText(Tr("download_region_with_size").arg(countryName, size));
     }
     else if (status == storage::Status::Downloading)
     {
+      m_downloadingStatusLabel->setText(Tr("downloader_process").arg(countryName));
       m_downloadingStatusLabel->setVisible(true);
     }
     else if (status == storage::Status::InQueue)
     {
       m_downloadingStatusLabel->setVisible(true);
 
-      std::stringstream str;
-      str << countryName << " is waiting for downloading";
-      m_downloadingStatusLabel->setText(str.str().c_str());
+      m_downloadingStatusLabel->setText(Tr("region_queued_for_download").arg(countryName));
     }
     else if (status != storage::Status::OnDisk && status != storage::Status::OnDiskOutOfDate)
     {
       m_retryButton->setVisible(true);
 
-      std::stringstream str;
-      str << "Retry to download " << countryName;
-      m_retryButton->setText(str.str().c_str());
+      m_retryButton->setText(Tr("retry_region_download").arg(countryName));
     }
   };
 
@@ -535,9 +508,14 @@ void MainWindow::CreateCountryStatusControls()
       onChanged(countryId);
   }, [this](storage::CountryId const & countryId, downloader::Progress const & progress)
   {
-    std::stringstream str;
-    str << "Downloading (" << countryId << ") " << progress.m_bytesDownloaded * 100 / progress.m_bytesTotal << "%";
-    m_downloadingStatusLabel->setText(str.str().c_str());
+    CHECK_GREATER(progress.m_bytesTotal, 0, (countryId));
+    QLocale const locale;
+    auto const percent =
+        locale.toString(static_cast<qulonglong>(progress.m_bytesDownloaded * 100 / progress.m_bytesTotal)) +
+        locale.percent();
+    m_downloadingStatusLabel->setText(
+        Tr("downloading_region_progress")
+            .arg(QString::fromStdString(GetFramework().GetStorage().GetNodeLocalName(countryId)), percent));
   });
 }
 

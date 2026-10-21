@@ -94,7 +94,7 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, qt::DrawWidget * draw
       // Bookmark color: a swatch button that opens QColorDialog and applies an arbitrary color.
       auto const bookmarkId = info.GetBookmarkId();
 
-      data->addWidget(new QLabel("Color"), row, 0);
+      data->addWidget(new QLabel(qt::Tr("bookmark_color")), row, 0);
       QPushButton * colorButton = new QPushButton();
       colorButton->setAutoDefault(false);
 
@@ -115,7 +115,7 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, qt::DrawWidget * draw
 
         auto const current = mark->GetColorForRendering();
         QColor const picked = QColorDialog::getColor(QColor(current.GetRed(), current.GetGreen(), current.GetBlue()),
-                                                     this, "Bookmark color");
+                                                     this, qt::Tr("choose_color"));
         if (!picked.isValid())
           return;
 
@@ -159,8 +159,8 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, qt::DrawWidget * draw
       wikiButton->setAutoDefault(false);
       connect(wikiButton, &QAbstractButton::clicked, this, [this, description, title]()
       {
-        auto textDialog =
-            TextDialog(this, QString::fromStdString(description), QString::fromStdString("Wikipedia: " + title));
+        auto textDialog = TextDialog(this, QString::fromStdString(description),
+                                     qt::Tr("wikipedia_place_title").arg(QString::fromStdString(title)));
         textDialog.exec();
       });
 
@@ -207,7 +207,8 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, qt::DrawWidget * draw
 
     if (auto heritageWebsite = info.GetMetadata(feature::Metadata::EType::FMD_HERITAGE_WEBSITE);
         !heritageWebsite.empty())
-      addEntry(data, row, "Heritage", QString::fromStdString(std::string(stripSchemeFromURI(heritageWebsite))),
+      addEntry(data, row, qt::Tr("heritage_website"),
+               QString::fromStdString(std::string(stripSchemeFromURI(heritageWebsite))),
                QString::fromStdString(std::string(heritageWebsite)));
 
     if (auto email = info.GetMetadata(feature::Metadata::EType::FMD_EMAIL); !email.empty())

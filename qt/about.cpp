@@ -40,9 +40,8 @@ AboutDialog::AboutDialog(QWidget * parent)
   if (QFile::exists(licenseDir + "LGPL-3.0-only.txt"))
   {
     auto * qtNotice = new QLabel(
-        "Qt 6 (C) The Qt Company Ltd. and other contributors. "
-        "License texts: licenses/LICENSES/Windows/LGPL-3.0-only.txt and "
-        "licenses/LICENSES/Windows/GPL-3.0-only.txt.");
+        qt::Tr("qt_license_notice")
+            .arg("licenses/LICENSES/Windows/LGPL-3.0-only.txt", "licenses/LICENSES/Windows/GPL-3.0-only.txt"));
     qtNotice->setWordWrap(true);
     versionBox->addWidget(qtNotice);
   }

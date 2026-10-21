@@ -64,7 +64,7 @@ You need a Linux or a macOS machine to build a desktop version of Organic Maps. 
 
 Ensure that you have at least 20GB of free space.
 
-Install CMake (**3.22.1** minimum), Qt 6, and the other dependencies.
+Install CMake (**3.22.1** minimum), Python **3.10+**, Qt 6, and the other dependencies.
 
 Installing *ccache* can speed up active development.
 

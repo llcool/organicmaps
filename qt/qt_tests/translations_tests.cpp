@@ -2,6 +2,8 @@
 
 #include "qt/qt_common/translations.hpp"
 
+#include "platform/localization.hpp"
+
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QPushButton>
@@ -71,5 +73,18 @@ UNIT_TEST(Translations_StandardControlsUseEmbeddedQtCatalog)
     TEST_EQUAL(buttons.button(QDialogButtonBox::Cancel)->text().toStdString(), test.m_cancel, (test.m_language));
     TEST_EQUAL(buttons.button(QDialogButtonBox::Yes)->text().remove('&').toStdString(), test.m_yes, (test.m_language));
   }
+}
+
+UNIT_TEST(Translations_CoreStringsAndFeatureTypesUseTheSelectedCatalog)
+{
+  std::string const language = "fr";
+  {
+    auto translator = qt::InstallTranslator(App(), {&language, 1});
+    TEST_EQUAL(platform::GetLocalizedString("share_my_position"), "Je suis ici sur Organic Maps", ());
+    TEST_EQUAL(platform::GetLocalizedTypeName("amenity-restaurant"), "Restaurant", ());
+    TEST_EQUAL(platform::GetLocalizedTypeName("cuisine-italian"), "Cuisine italienne", ());
+  }
+  // Command-line clients share this backend without installing the UI's catalogs.
+  TEST_EQUAL(platform::GetLocalizedTypeName("cuisine-italian"), "cuisine-italian", ());
 }
 }  // namespace translations_tests

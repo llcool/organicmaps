@@ -97,7 +97,7 @@ QToolBar * createActionToolBar(QWidget * parent, qt::DrawWidget * drawWidget, pl
   if (info.IsTrack())
   {
     kml::TrackId const trackId = info.GetTrackId();
-    QAction * alongAction = toolBar->addAction("Route Along Track");
+    QAction * alongAction = toolBar->addAction(qt::Tr("route_along_track"));
     QObject::connect(alongAction, &QAction::triggered, parent,
                      [drawWidget, trackId] { drawWidget->RouteAlongTrack(trackId); });
   }
@@ -116,8 +116,8 @@ QToolBar * createActionToolBar(QWidget * parent, qt::DrawWidget * drawWidget, pl
   if (!info.IsTrack())
   {
     QToolButton * shareButton = new QToolButton(toolBar);
-    shareButton->setText("Share");
-    shareButton->setToolTip("Share this place");
+    shareButton->setText(qt::Tr("share"));
+    shareButton->setToolTip(qt::Tr("share"));
     shareButton->setPopupMode(QToolButton::InstantPopup);
 
     // The place page lives in a dock that stays alive after the map selection is dropped, unlike the
@@ -131,28 +131,26 @@ QToolBar * createActionToolBar(QWidget * parent, qt::DrawWidget * drawWidget, pl
     };
 
     QMenu * shareMenu = new QMenu(shareButton);
-    QObject::connect(shareMenu->addAction("Copy Link"), &QAction::triggered, parent, [getShareData]
+    QObject::connect(shareMenu->addAction(qt::Tr("copy_link")), &QAction::triggered, parent, [getShareData]
     {
       if (auto const d = getShareData())
         QGuiApplication::clipboard()->setText(QString::fromStdString(d->m_url));
     });
-    QObject::connect(shareMenu->addAction("Copy Text"), &QAction::triggered, parent, [getShareData]
+    QObject::connect(shareMenu->addAction(qt::Tr("copy_text")), &QAction::triggered, parent, [getShareData]
     {
       if (auto const d = getShareData())
         QGuiApplication::clipboard()->setText(QString::fromStdString(d->m_text));
     });
-    QObject::connect(shareMenu->addAction("Email…"), &QAction::triggered, parent, [drawWidget, getShareData]
+    QObject::connect(shareMenu->addAction(qt::Tr("email")), &QAction::triggered, parent, [getShareData]
     {
       auto const d = getShareData();
       if (!d)
         return;
-      // Desktop is not localized, so the subject is composed here instead of from the
-      // "%1 on Organic Maps" format string the mobile apps own.
-      QString subject = QStringLiteral("A place on Organic Maps");
+      QString subject = qt::Tr("share_place_subject_default");
       if (d->m_isMyPosition)
-        subject = QString::fromStdString(drawWidget->GetFramework().GetStringsBundle().GetString("share_my_position"));
+        subject = qt::Tr("share_my_position");
       else if (!d->m_subjectBasis.empty())
-        subject = QString::fromStdString(d->m_subjectBasis) + " on Organic Maps";
+        subject = qt::Tr("share_place_subject").arg(QString::fromStdString(d->m_subjectBasis));
 
       QUrlQuery query;
       query.addQueryItem("subject", subject);
@@ -194,7 +192,7 @@ void addRoutesRow(QGridLayout * grid, int & row, qt::DrawWidget * drawWidget, pl
 
   QComboBox * routesCombo = new QComboBox();
   // Placeholder so opening the widget does not auto-select (and trigger) the first route.
-  routesCombo->setPlaceholderText("Select a route…");
+  routesCombo->setPlaceholderText(qt::Tr("select_transit_route"));
   for (auto const & r : routes)
   {
     QString const text = QString::fromStdString(r.m_ref);
@@ -235,7 +233,7 @@ void addCoordinatesRow(QGridLayout * grid, int & row, place_page::Info const & i
   // mobile. A separate control keeps the value label free for text selection / copy.
   QToolButton * change = new QToolButton();
   change->setText(QString::fromUtf8("↻"));
-  change->setToolTip("Switch coordinates format");
+  change->setToolTip(qt::Tr("switch_coordinates_format"));
   QObject::connect(change, &QToolButton::clicked, value, [entries, render]
   {
     auto const next = place_page::NextCoordinateFormat(entries, SavedCoordinateFormat());

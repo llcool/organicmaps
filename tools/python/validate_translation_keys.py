@@ -38,8 +38,8 @@ _CATEGORY_LIST_RE = re.compile(
     r"DisplayedCategories::DisplayedCategories\b.*?\bm_keys\s*=\s*\{([^}]*)\}",
     re.DOTALL,
 )
-# Both qt::Tr() and unqualified Tr() use strings.txt IDs.
-_QT_RE = re.compile(r'\bTr\s*\(\s*"([^"]+)"')
+# Tr() resolves IDs; QT_TRID_NOOP marks IDs stored for later lookup.
+_QT_RE = re.compile(r'\b(?:Tr|QT_TRID_NOOP|QT_TRID_N_NOOP)\s*\(\s*"([^"]+)"')
 # Exclude explicit references to Android framework resources.
 _ANDROID_R_RE = re.compile(r"(?<!android\.)\bR\.(?:string|plurals)\.(\w+)")
 _ANDROID_XML_RE = re.compile(r"@(?:string|plurals)/(\w+)")
@@ -335,7 +335,7 @@ def main():
         "referenced by an Apple target their tags leave out",
         find_undertagged_targets(tags_by_key, apple_referenced),
     )
-    qt_referenced = {"qt": strict_referenced["qt"]}
+    qt_referenced = {"qt": strict_referenced["qt"] | strict_referenced["core"]}
     failures += report(
         "tagged for Qt without a Qt reference",
         find_overtagged_targets(tags_by_key, qt_referenced),

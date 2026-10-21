@@ -89,6 +89,8 @@ class QtMatcherTest(unittest.TestCase):
             ('qt::Tr("version").arg("not_a_key")', {"version": 0}),
             ('::qt::Tr("version")', {"version": 0}),
             ('qt::Tr("count", n)', {"count": 0}),
+            ('QT_TRID_NOOP("stored")', {"stored": 0}),
+            ('QT_TRID_N_NOOP("plural")', {"plural": 0}),
             ('qt::Tr (\n  "count",\n  n)', {"count": 1}),
             ('Tr("first");\nqt::Tr("second")', {"first": 0, "second": 1}),
         ]
@@ -147,6 +149,21 @@ class QtValidationTest(unittest.TestCase):
         self.assertEqual(result, 1, output)
         self.assertIn("referenced by Qt but missing its consumer tag", output)
         self.assertIn("- shared (qt)", output)
+
+    def test_shared_core_reference_requires_qt_tag(self):
+        result, output = self._validate(
+            {"shared": "android-sdk,apple-maps"},
+            {"libs/core.cpp": 'platform::GetLocalizedString("shared")'},
+        )
+        self.assertEqual(result, 1, output)
+        self.assertIn("- shared (qt)", output)
+
+    def test_shared_core_reference_justifies_qt_tag(self):
+        result, output = self._validate(
+            {"shared": "qt,android-sdk,apple-maps"},
+            {"libs/core.cpp": 'platform::GetLocalizedString("shared")'},
+        )
+        self.assertEqual(result, 0, output)
 
     def test_missing_qt_definition_reports_source_line(self):
         result, output = self._validate(

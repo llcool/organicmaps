@@ -266,6 +266,12 @@ int main(int argc, char * argv[])
 #endif  // BUILD_DESIGNER
 
     Framework framework(frameworkParams);
+    for (auto const * key :
+         {QT_TRID_NOOP("core_entrance"), QT_TRID_NOOP("core_exit"), QT_TRID_NOOP("core_placepage_unknown_place"),
+          QT_TRID_NOOP("core_my_places"), QT_TRID_NOOP("core_my_position"), QT_TRID_NOOP("open_in_app"),
+          QT_TRID_NOOP("postal_code"), QT_TRID_NOOP("share_my_position"), QT_TRID_NOOP("share_open_in_om_or_browser"),
+          QT_TRID_NOOP("share_get_om")})
+      framework.AddString(key, qt::Tr(key).toStdString());
     framework.SetupMeasurementSystem();
 
     auto const syncNightMode = [&framework]()

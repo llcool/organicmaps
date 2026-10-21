@@ -21,6 +21,8 @@ Name keys after the message's meaning and UI context, for example `app_exit` or 
 
 Tags identify consumers of a message. The `qt` tag applies to the Qt UI on any operating system or device. Each export filters by its consumer tags. When another consumer needs a message, add its tag to the existing entry. Qt catalogs include English fallbacks and are compiled into the application as resources.
 
+Qt also needs the `qt` tag on messages requested by the shared core. Feature-type catalogs are generated from `types_strings.txt` during the Qt build and embedded alongside the UI catalogs; they are not checked in separately.
+
 ## Requirements
 
 Python 3.10+ is required to run the `tools/unix/generate_localizations.sh` script.
